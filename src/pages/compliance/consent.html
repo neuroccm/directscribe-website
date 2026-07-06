@@ -1,0 +1,52 @@
+<!--
+title: Patient consent & clinic checklist
+description: Sample patient-notice wording for AI-assisted dictation, plus a clinic-responsibility checklist — FileVault, network protection, and signed vendor agreements. General information, not legal advice.
+nav: compliance
+-->
+<section class="section section--wash">
+  <div class="container container--narrow">
+    <p class="eyebrow">Compliance Centre · Consent</p>
+    <h1>Patient consent and your clinic's part</h1>
+    <p class="lead">Sample wording to inform patients, and a checklist of the safeguards that are yours to put in place. Adapt both to your college's requirements and your provincial law.</p>
+    <div class="callout callout--legal">
+      <p class="callout__label">Not legal advice</p>
+      <p class="mb-0">This is sample language and a general checklist, not legal advice and not a consent form approved for your jurisdiction. Your regulatory college and provincial privacy law set the actual requirements; confirm them and involve a privacy advisor.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow prose prose--wide">
+    <h2>What patients should understand</h2>
+    <ul>
+      <li>Only the <strong>physician's voice</strong> is recorded to help write the note — the patient is not recorded, and there is no open microphone on the room.</li>
+      <li>The dictation is transcribed and shaped into a note using third-party software vendors the physician has chosen.</li>
+      <li>The note is stored briefly on the physician's Mac and then deleted on a set schedule; the medical record itself lives in the clinic's EMR.</li>
+      <li>The patient can ask questions or raise concerns about the tool at any time.</li>
+    </ul>
+
+    <h2>Sample patient notice</h2>
+    <p>Adapt this plain-language notice for a posted sign, an intake sheet, or a verbal script:</p>
+    <div class="callout">
+      <p class="mb-0"><em>"To write your visit notes accurately, your physician may dictate a summary after speaking with you. Only the physician's voice is recorded — you are not recorded. The dictation is converted to text and organised using secure software services and is kept only briefly before being deleted; your medical record is stored in our clinic's electronic records system. Please let us know if you have any questions."</em></p>
+    </div>
+    <p class="fineprint">Whether express or implied consent applies, and how it must be documented, depends on your jurisdiction and college — confirm before relying on any wording.</p>
+
+    <h2 id="checklist">Clinic-responsibility checklist</h2>
+    <p>DirectScribe secures its own behaviour, but these safeguards are yours to configure and maintain:</p>
+    <ul class="checklist">
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>Turn on FileVault.</b> Full-disk encryption is what protects any residual data after deletion and any data at rest if the Mac is lost or stolen. This is the single most important item.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>Protect your network.</b> Use a trusted, password-protected network for clinical work; avoid public Wi-Fi for anything patient-related; keep the macOS firewall on and the OS up to date.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>Put signed vendor agreements in place.</b> Where your assessment requires it, sign a BAA or data-processing agreement with each vendor before sending patient-derived data. See the per-vendor notes in the <a href="/vendors/deepgram/">vendor guides</a>.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>Secure the device.</b> Strong login password, automatic screen lock, and physical security for the Mac. Do not share the login used for clinical work.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>Know your backups.</b> Deletion frees files on your schedule, but any backup you run yourself may retain copies. Decide deliberately what is backed up and exclude what should not be.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>Set a short retention window.</b> Keep only what you need. Use the session-end delete once a note is safely in the EMR — your system of record.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><b>If you run LM Studio locally,</b> enable its bearer token and keep the server on loopback only.</span></li>
+    </ul>
+
+    <div class="btn-row mt-2">
+      <a class="btn btn--primary" href="/compliance/pia-template/">Open the PIA template</a>
+      <a class="btn btn--ghost" href="/security/">Security design</a>
+    </div>
+  </div>
+</section>

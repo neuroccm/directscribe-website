@@ -1,0 +1,116 @@
+<!--
+title: PIA template
+description: A Privacy Impact Assessment template for DirectScribe, aligned to Ontario IPC AI-scribe guidance (January 2026), with prompts to complete for your own practice. General information, not legal advice.
+nav: compliance
+-->
+<section class="section section--wash">
+  <div class="container container--narrow">
+    <p class="eyebrow">Compliance Centre · Template</p>
+    <h1>Privacy Impact Assessment template</h1>
+    <p class="lead">A working structure for assessing DirectScribe in your practice, aligned to the Ontario Information and Privacy Commissioner's AI-scribe guidance (January 2026). Copy it, fill in each prompt, and adapt it to your province.</p>
+    <div class="callout callout--legal">
+      <p class="callout__label">Not legal advice</p>
+      <p class="mb-0">This template is general information, not legal advice, and is not a completed assessment. Read the primary source — the <a href="https://www.ipc.on.ca/">Ontario IPC</a> AI-scribe guidance — and your own province's regulator and college guidance, and involve a privacy advisor. You remain the health-information custodian.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow prose prose--wide">
+    <div class="toc" aria-label="Sections">
+      <p>Sections</p>
+      <ul>
+        <li><a href="#s1">1. Tool overview</a></li>
+        <li><a href="#s2">2. Data inventory &amp; flows</a></li>
+        <li><a href="#s3">3. Authority, consent &amp; transparency</a></li>
+        <li><a href="#s4">4. Vendors &amp; agreements</a></li>
+        <li><a href="#s5">5. Retention &amp; disposal</a></li>
+        <li><a href="#s6">6. Safeguards</a></li>
+        <li><a href="#s7">7. Risk register</a></li>
+        <li><a href="#s8">8. Roles &amp; accountability</a></li>
+        <li><a href="#s9">9. Review &amp; sign-off</a></li>
+      </ul>
+    </div>
+
+    <h2 id="s1">1. Tool overview and purpose</h2>
+    <p><em>Prompt:</em> Describe the tool, why you are using it, and its scope.</p>
+    <p><em>DirectScribe reference you can cite:</em> DirectScribe is a Mac-native dictation tool. The physician dictates; the audio is transcribed by a chosen cloud vendor and shaped into the physician's own note templates by a chosen intelligence vendor; the physician reviews and pastes the note into the EMR. Only the physician's voice is recorded — it is not an ambient scribe, and the patient is not recorded. There is no DirectScribe server.</p>
+
+    <h2 id="s2">2. Data inventory and flows</h2>
+    <p><em>Prompt:</em> List each data element, where it originates, where it is sent, and how long it is kept.</p>
+    <div class="table-wrap">
+      <table class="table">
+        <caption>Complete for your configuration.</caption>
+        <thead><tr><th scope="col">Data element</th><th scope="col">Origin</th><th scope="col">Sent to</th><th scope="col">Retained</th></tr></thead>
+        <tbody>
+          <tr><td>Physician voice recording</td><td>Your Mac</td><td>Chosen STT vendor (TLS)</td><td>Your window; session-end delete</td></tr>
+          <tr><td>Transcript text</td><td>STT vendor result</td><td>Chosen intelligence vendor (or local LM Studio)</td><td>Your window</td></tr>
+          <tr><td>Generated note</td><td>Intelligence vendor</td><td>Stays on your Mac → you paste into the EMR</td><td>Your window</td></tr>
+          <tr><td>API keys</td><td>You</td><td>macOS Keychain (local)</td><td>Until you remove them</td></tr>
+          <tr><td>Audit log (PHI-free)</td><td>The app</td><td>Local only; never swept</td><td>Retained</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="s3">3. Legal authority, consent and transparency</h2>
+    <p><em>Prompt:</em> State your authority to collect and use the information, and how patients are informed. Reference PHIPA (or your provincial equivalent) and PIPEDA. Describe your consent/notice approach and record where it is documented.</p>
+    <p>Use the <a href="/compliance/consent/">patient-consent wording</a> as a starting point and adapt it to your college's requirements.</p>
+
+    <h2 id="s4">4. Vendors and agreements</h2>
+    <p><em>Prompt:</em> Record each vendor, its role, data region, and the status of any signed agreement (BAA / data-processing agreement). Do not send patient-derived data to a vendor before the agreement your assessment requires is in place.</p>
+    <div class="table-wrap">
+      <table class="table">
+        <caption>Confirm current terms directly with each vendor — see the vendor guides.</caption>
+        <thead><tr><th scope="col">Vendor</th><th scope="col">Role</th><th scope="col">Agreement status to confirm</th></tr></thead>
+        <tbody>
+          <tr><td><a href="/vendors/deepgram/">Deepgram</a></td><td>Transcription</td><td>BAA on request</td></tr>
+          <tr><td><a href="/vendors/elevenlabs/">ElevenLabs</a></td><td>Transcription</td><td>BAA on enterprise plans only</td></tr>
+          <tr><td><a href="/vendors/openai/">OpenAI</a></td><td>Intelligence</td><td>BAA by email to individuals</td></tr>
+          <tr><td><a href="/vendors/anthropic/">Anthropic</a></td><td>Intelligence</td><td>Small-customer BAA status being verified — treat as conditional</td></tr>
+          <tr><td><a href="/vendors/lmstudio/">LM Studio</a></td><td>Intelligence (local)</td><td>No external vendor; no agreement needed</td></tr>
+          <tr><td><a href="/vendors/aws/">AWS Transcribe Medical</a></td><td>Transcription (coming soon)</td><td>AWS BAA via Artifact; ca-central-1</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="s5">5. Retention and disposal</h2>
+    <p><em>Prompt:</em> State your retention window and disposal method, and reconcile them with your record-keeping obligations (your EMR — not DirectScribe — is your medical-record system).</p>
+    <p><em>Reference:</em> DirectScribe retains for 7, 30, or 90 days plus an on-demand session-end delete. Disposal means deleted from the file system on your schedule; FileVault protects residual storage; backups you configure may retain copies. The audit log evidences the deletion action.</p>
+
+    <h2 id="s6">6. Technical and administrative safeguards</h2>
+    <p><em>Prompt:</em> Document your safeguards. Reference the <a href="/compliance/consent/">clinic-responsibility checklist</a> and confirm each item.</p>
+    <ul>
+      <li>FileVault full-disk encryption enabled on the Mac.</li>
+      <li>API keys in the macOS Keychain; app runs sandboxed.</li>
+      <li>Encrypted (TLS) transport to vendors; local models kept to loopback.</li>
+      <li>PHI-free, tamper-evident audit log of transmissions and deletions.</li>
+      <li>Screen lock, strong login, and physical device security.</li>
+    </ul>
+
+    <h2 id="s7">7. Risk register</h2>
+    <p><em>Prompt:</em> Identify risks, rate likelihood and impact, record mitigations and residual risk.</p>
+    <div class="table-wrap">
+      <table class="table">
+        <caption>Example risks to adapt.</caption>
+        <thead><tr><th scope="col">Risk</th><th scope="col">Mitigation</th><th scope="col">Residual (you assess)</th></tr></thead>
+        <tbody>
+          <tr><td>Audio processed by a cloud STT vendor</td><td>Choose a vendor with acceptable terms; sign an agreement where required</td><td>—</td></tr>
+          <tr><td>Deleted data residue on APFS</td><td>FileVault; Time Machine exclusion; deliberate backup policy</td><td>—</td></tr>
+          <tr><td>Local model port unauthenticated (LM Studio)</td><td>Enable the bearer token; loopback-only; response-shape check</td><td>—</td></tr>
+          <tr><td>Lost or stolen Mac</td><td>FileVault; screen lock; short retention window</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="s8">8. Roles and accountability</h2>
+    <p><em>Prompt:</em> Name the health-information custodian (typically you), anyone with device access, and who is accountable for the safeguards and this assessment.</p>
+
+    <h2 id="s9">9. Review, approval and sign-off</h2>
+    <p><em>Prompt:</em> Record who reviewed and approved this PIA, the date, and the next review date. Re-review when a vendor, your retention settings, or the regulator's guidance changes.</p>
+
+    <div class="btn-row mt-3">
+      <a class="btn btn--primary" href="/compliance/consent/">Patient consent &amp; checklist</a>
+      <a class="btn btn--ghost" href="/compliance/">Back to Compliance Centre</a>
+    </div>
+  </div>
+</section>

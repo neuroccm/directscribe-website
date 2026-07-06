@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compliance Centre · DirectScribe</title>
+<meta name="description" content="Canada-first compliance resources for DirectScribe — a PIA template aligned to Ontario IPC AI-scribe guidance, patient-consent wording, and a clinic-responsibility checklist. General information, not legal advice.">
+<link rel="canonical" href="https://directscribe.ca/compliance/">
+<meta name="theme-color" content="#0a2540">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/styles.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DirectScribe">
+<meta property="og:title" content="Compliance Centre · DirectScribe">
+<meta property="og:description" content="Canada-first compliance resources for DirectScribe — a PIA template aligned to Ontario IPC AI-scribe guidance, patient-consent wording, and a clinic-responsibility checklist. General information, not legal advice.">
+<meta property="og:url" content="https://directscribe.ca/compliance/">
+<meta name="twitter:card" content="summary">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="nav container" aria-label="Primary">
+    <a class="brand" href="/" aria-label="DirectScribe home">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect x="1" y="1" width="30" height="30" rx="8" fill="#0b5fa5"></rect>
+        <g fill="#ffffff">
+          <rect x="7"  y="13" width="2.6" height="6"  rx="1.3"></rect>
+          <rect x="11" y="10" width="2.6" height="12" rx="1.3"></rect>
+          <rect x="15" y="7"  width="2.6" height="18" rx="1.3"></rect>
+          <rect x="19" y="11" width="2.6" height="10" rx="1.3"></rect>
+          <rect x="23" y="14" width="2.6" height="4"  rx="1.3"></rect>
+        </g>
+      </svg>
+      <span>DirectScribe</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="/" data-nav="product">Product</a></li>
+      <li><a href="/security/" data-nav="security">Security</a></li>
+      <li><a href="/pricing/" data-nav="pricing">Pricing</a></li>
+      <li><a href="/compliance/" data-nav="compliance" aria-current="page">Compliance</a></li>
+      <li><a href="/support/" data-nav="support">Support</a></li>
+    </ul>
+    <a class="btn btn--primary btn--sm nav__cta" href="/download/" data-nav="download">Download</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="section section--wash">
+  <div class="container container--narrow">
+    <p class="eyebrow">Compliance Centre</p>
+    <h1>Do your own assessment, with a running start</h1>
+    <p class="lead">Practical, Canada-first resources to help you and your privacy advisor assess DirectScribe under <strong>PIPEDA</strong> and your province's health-privacy law (in Ontario, <strong>PHIPA</strong>). We do not market against US HIPAA.</p>
+    <div class="callout callout--legal">
+      <p class="callout__label">Not legal advice</p>
+      <p class="mb-0">Everything in the Compliance Centre is general information to support your own privacy assessment. It is not legal advice, is not a substitute for your professional college's guidance or a privacy lawyer, and does not create any professional relationship. You remain the health-information custodian responsible for your patients' data.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container container--narrow">
+    <h2>Start here</h2>
+    <div class="card-grid">
+      <a class="card" href="/compliance/pia-template/">
+        <h3>PIA template <span aria-hidden="true">→</span></h3>
+        <p>A Privacy Impact Assessment template aligned to Ontario IPC AI-scribe guidance (January 2026), with DirectScribe-specific prompts to fill in.</p>
+      </a>
+      <a class="card" href="/compliance/consent/">
+        <h3>Patient consent <span aria-hidden="true">→</span></h3>
+        <p>Sample patient-notice wording plus a clinic-responsibility checklist — FileVault, network protection, and signed vendor agreements.</p>
+      </a>
+      <a class="card" href="/security/">
+        <h3>Security design <span aria-hidden="true">→</span></h3>
+        <p>How the app handles data, deletion honesty, the audit log's real scope, and the one network call it makes.</p>
+      </a>
+      <a class="card" href="/guides/templates/">
+        <h3>Template guide <span aria-hidden="true">→</span></h3>
+        <p>Author your own note templates with plain-language placeholder conventions and ALL-CAPS headings.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow prose prose--wide">
+    <h2>How the design maps to common assessment questions</h2>
+    <div class="table-wrap">
+      <table class="table">
+        <caption>A starting point for your PIA — confirm each against your own configuration and your regulator's current guidance.</caption>
+        <thead><tr><th scope="col">Assessment question</th><th scope="col">How DirectScribe is designed</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Who receives PHI?</th><td>Only the transcription and intelligence vendors you choose. There is no DirectScribe server in the path.</td></tr>
+          <tr><th scope="row">Is the patient recorded?</th><td>No. Only the physician's voice is recorded for dictation; it is not an ambient scribe.</td></tr>
+          <tr><th scope="row">Where are credentials stored?</th><td>API keys are held in the macOS Keychain, protected by your login and FileVault.</td></tr>
+          <tr><th scope="row">How long is data kept?</th><td>On your retention window (7/30/90 days) plus a session-end delete. Deletion is logged.</td></tr>
+          <tr><th scope="row">Can you evidence data flows?</th><td>Yes — a PHI-free, tamper-evident audit log records every transmission and deletion.</td></tr>
+          <tr><th scope="row">Is there vendor lock-in?</th><td>No. Bring your own keys; switch vendors; run note-shaping locally with LM Studio.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>About the audit log, so no one over-claims</h2>
+    <p>DirectScribe's audit log is a <strong>transmission-and-deletion transparency record</strong>. It is explicitly <strong>not a PHIPA s.10.1 access-audit log</strong>: that section is enacted but not yet in force, and it concerns logging who <em>views</em> a patient's record. The app logs sends and deletes, not PHI access — and your <strong>EMR remains the system of record</strong> for the clinical note and its access history. The log helps you evidence where data went and when it was removed; it does not, by itself, satisfy any regulatory audit obligation.</p>
+
+    <div class="btn-row mt-2">
+      <a class="btn btn--primary" href="/compliance/pia-template/">Open the PIA template</a>
+      <a class="btn btn--ghost" href="/compliance/consent/">Patient consent &amp; checklist</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about-col">
+        <a class="brand" href="/" aria-label="DirectScribe home">
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <rect x="1" y="1" width="30" height="30" rx="8" fill="#0b5fa5"></rect>
+            <g fill="#ffffff">
+              <rect x="7"  y="13" width="2.6" height="6"  rx="1.3"></rect>
+              <rect x="11" y="10" width="2.6" height="12" rx="1.3"></rect>
+              <rect x="15" y="7"  width="2.6" height="18" rx="1.3"></rect>
+              <rect x="19" y="11" width="2.6" height="10" rx="1.3"></rect>
+              <rect x="23" y="14" width="2.6" height="4"  rx="1.3"></rect>
+            </g>
+          </svg>
+          <span>DirectScribe</span>
+        </a>
+        <p class="footer-about">A Mac-native, bring-your-own-API-key dictation app for solo outpatient primary-care physicians in Canada. Built by a physician.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/">Overview</a></li>
+          <li><a href="/security/">Security</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/cost/">Cost breakdown</a></li>
+          <li><a href="/download/">Download</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Set up a vendor</h4>
+        <ul>
+          <li><a href="/vendors/deepgram/">Deepgram</a></li>
+          <li><a href="/vendors/elevenlabs/">ElevenLabs</a></li>
+          <li><a href="/vendors/openai/">OpenAI</a></li>
+          <li><a href="/vendors/anthropic/">Anthropic</a></li>
+          <li><a href="/vendors/lmstudio/">LM Studio</a></li>
+          <li><a href="/vendors/aws/">AWS</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Compliance &amp; help</h4>
+        <ul>
+          <li><a href="/compliance/">Compliance Centre</a></li>
+          <li><a href="/compliance/pia-template/">PIA template</a></li>
+          <li><a href="/compliance/consent/">Patient consent</a></li>
+          <li><a href="/guides/templates/">Template guide</a></li>
+          <li><a href="/support/">Support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p><strong>Not legal advice.</strong> DirectScribe is a documentation tool. Compliance materials on this site are general information to help you and your privacy advisor do your own assessment under PIPEDA and your province's health-privacy law (e.g., PHIPA in Ontario). They are not legal advice and do not create any professional relationship.</p>
+      <p>© 2026 DirectScribe · Made for macOS · This site runs no scripts and sets no cookies. · directscribe.ca</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Writing your own templates · DirectScribe</title>
+<meta name="description" content="A plain-language guide to authoring DirectScribe note templates — ALL-CAPS headings, bracketed placeholder conventions, and worked examples for SOAP notes, periodic health exams, and referral letters.">
+<link rel="canonical" href="https://directscribe.ca/guides/templates/">
+<meta name="theme-color" content="#0a2540">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/styles.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DirectScribe">
+<meta property="og:title" content="Writing your own templates · DirectScribe">
+<meta property="og:description" content="A plain-language guide to authoring DirectScribe note templates — ALL-CAPS headings, bracketed placeholder conventions, and worked examples for SOAP notes, periodic health exams, and referral letters.">
+<meta property="og:url" content="https://directscribe.ca/guides/templates/">
+<meta name="twitter:card" content="summary">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="nav container" aria-label="Primary">
+    <a class="brand" href="/" aria-label="DirectScribe home">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect x="1" y="1" width="30" height="30" rx="8" fill="#0b5fa5"></rect>
+        <g fill="#ffffff">
+          <rect x="7"  y="13" width="2.6" height="6"  rx="1.3"></rect>
+          <rect x="11" y="10" width="2.6" height="12" rx="1.3"></rect>
+          <rect x="15" y="7"  width="2.6" height="18" rx="1.3"></rect>
+          <rect x="19" y="11" width="2.6" height="10" rx="1.3"></rect>
+          <rect x="23" y="14" width="2.6" height="4"  rx="1.3"></rect>
+        </g>
+      </svg>
+      <span>DirectScribe</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="/" data-nav="product">Product</a></li>
+      <li><a href="/security/" data-nav="security">Security</a></li>
+      <li><a href="/pricing/" data-nav="pricing">Pricing</a></li>
+      <li><a href="/compliance/" data-nav="compliance">Compliance</a></li>
+      <li><a href="/support/" data-nav="support">Support</a></li>
+    </ul>
+    <a class="btn btn--primary btn--sm nav__cta" href="/download/" data-nav="download">Download</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="section section--wash">
+  <div class="container container--narrow">
+    <p class="eyebrow">Guide</p>
+    <h1>Writing your own templates</h1>
+    <p class="lead">Your templates are how DirectScribe shapes a rambling dictation into the note you actually want. They are plain text — no code — and take about five minutes to write once you know the two conventions.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow prose prose--wide">
+    <h2>Two conventions, that's it</h2>
+    <ul>
+      <li><strong>ALL-CAPS lines are headings.</strong> A line in capital letters, like <code>ASSESSMENT</code>, becomes a section heading the note is organised under. The app and the model both treat these as the fixed skeleton of your note.</li>
+      <li><strong>[Bracketed text] is a placeholder.</strong> Square brackets mark where content goes and describe what belongs there, like <code>[history of present illness]</code>. Write the description in plain language — the more specific, the better the fill.</li>
+    </ul>
+    <p>Everything else is literal text that appears in the note as written. That's the whole system.</p>
+
+    <h2>A worked example: SOAP visit</h2>
+    <p>Here is a complete, usable template:</p>
+    <div class="codeblock">CHIEF COMPLAINT
+[reason for the visit, briefly]
+
+SUBJECTIVE
+[history of present illness]
+[relevant past history, medications, allergies if mentioned]
+
+OBJECTIVE
+[vitals: BLOOD PRESSURE, heart rate, temperature if dictated]
+[physical exam findings]
+
+ASSESSMENT
+[numbered problem list with clinical impression]
+
+PLAN
+[investigations, treatment, patient instructions, follow-up]</div>
+    <p>Dictate the visit however it comes out — out of order, with asides — and the model sorts what you said under these headings, filling each placeholder from your words. You review and paste.</p>
+
+    <h2>Good placeholder habits</h2>
+    <ul>
+      <li><strong>Describe, don't abbreviate.</strong> <code>[history of present illness]</code> guides the model better than <code>[HPI]</code>.</li>
+      <li><strong>One idea per placeholder.</strong> Split <code>[exam and vitals]</code> into <code>[vitals]</code> and <code>[physical exam findings]</code> for cleaner output.</li>
+      <li><strong>Name specific fields you always want,</strong> like <code>[BLOOD PRESSURE]</code>, so they are never dropped.</li>
+      <li><strong>Keep headings stable.</strong> Consistent ALL-CAPS headings make your notes predictable and easy to skim in the EMR.</li>
+      <li><strong>Shorter is better.</strong> A tight template outperforms a sprawling one. Make one template per note type rather than one giant template.</li>
+    </ul>
+
+    <h2>More patterns</h2>
+    <h3>Periodic health exam</h3>
+    <div class="codeblock">PERIODIC HEALTH EXAM
+[screening topics discussed]
+[immunisations reviewed or updated]
+[lifestyle counselling]
+
+EXAM
+[vitals: BLOOD PRESSURE, BMI]
+[system-based exam findings]
+
+PLAN
+[screening ordered]
+[follow-up interval]</div>
+
+    <h3>Referral letter</h3>
+    <div class="codeblock">RE: [patient identifier — you fill this in the EMR, not by dictation]
+
+REASON FOR REFERRAL
+[the clinical question for the consultant]
+
+RELEVANT HISTORY
+[focused history and findings]
+
+CURRENT MEDICATIONS
+[medication list]
+
+REQUESTED
+[what you are asking the consultant to do]</div>
+
+    <h2>How the app uses template names</h2>
+    <p>You pick a template by name, and DirectScribe matches it exactly or fuzzily. If a dictation mentions a note type you have no template for, the app still saves your note — it will not silently invent and store a new template. Your template library stays exactly what you authored.</p>
+
+    <div class="callout callout--info">
+      <p class="mb-0"><strong>Test before clinic.</strong> Write a template, dictate a made-up sample case, and read the output. Adjust the placeholders until it lands the way you like — then it will behave the same on a real visit.</p>
+    </div>
+
+    <div class="btn-row mt-2">
+      <a class="btn btn--primary" href="/download/">Download DirectScribe</a>
+      <a class="btn btn--ghost" href="/compliance/">Compliance Centre</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about-col">
+        <a class="brand" href="/" aria-label="DirectScribe home">
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <rect x="1" y="1" width="30" height="30" rx="8" fill="#0b5fa5"></rect>
+            <g fill="#ffffff">
+              <rect x="7"  y="13" width="2.6" height="6"  rx="1.3"></rect>
+              <rect x="11" y="10" width="2.6" height="12" rx="1.3"></rect>
+              <rect x="15" y="7"  width="2.6" height="18" rx="1.3"></rect>
+              <rect x="19" y="11" width="2.6" height="10" rx="1.3"></rect>
+              <rect x="23" y="14" width="2.6" height="4"  rx="1.3"></rect>
+            </g>
+          </svg>
+          <span>DirectScribe</span>
+        </a>
+        <p class="footer-about">A Mac-native, bring-your-own-API-key dictation app for solo outpatient primary-care physicians in Canada. Built by a physician.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/">Overview</a></li>
+          <li><a href="/security/">Security</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/cost/">Cost breakdown</a></li>
+          <li><a href="/download/">Download</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Set up a vendor</h4>
+        <ul>
+          <li><a href="/vendors/deepgram/">Deepgram</a></li>
+          <li><a href="/vendors/elevenlabs/">ElevenLabs</a></li>
+          <li><a href="/vendors/openai/">OpenAI</a></li>
+          <li><a href="/vendors/anthropic/">Anthropic</a></li>
+          <li><a href="/vendors/lmstudio/">LM Studio</a></li>
+          <li><a href="/vendors/aws/">AWS</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Compliance &amp; help</h4>
+        <ul>
+          <li><a href="/compliance/">Compliance Centre</a></li>
+          <li><a href="/compliance/pia-template/">PIA template</a></li>
+          <li><a href="/compliance/consent/">Patient consent</a></li>
+          <li><a href="/guides/templates/">Template guide</a></li>
+          <li><a href="/support/">Support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p><strong>Not legal advice.</strong> DirectScribe is a documentation tool. Compliance materials on this site are general information to help you and your privacy advisor do your own assessment under PIPEDA and your province's health-privacy law (e.g., PHIPA in Ontario). They are not legal advice and do not create any professional relationship.</p>
+      <p>© 2026 DirectScribe · Made for macOS · This site runs no scripts and sets no cookies. · directscribe.ca</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

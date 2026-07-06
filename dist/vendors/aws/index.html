@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set up AWS (coming soon) · DirectScribe</title>
+<meta name="description" content="AWS Transcribe Medical is coming to DirectScribe as a transcription option for maximum-compliance practices — AWS BAA and a Canadian region (ca-central-1). Not available at launch.">
+<link rel="canonical" href="https://directscribe.ca/vendors/aws/">
+<meta name="theme-color" content="#0a2540">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/styles.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DirectScribe">
+<meta property="og:title" content="Set up AWS (coming soon) · DirectScribe">
+<meta property="og:description" content="AWS Transcribe Medical is coming to DirectScribe as a transcription option for maximum-compliance practices — AWS BAA and a Canadian region (ca-central-1). Not available at launch.">
+<meta property="og:url" content="https://directscribe.ca/vendors/aws/">
+<meta name="twitter:card" content="summary">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="nav container" aria-label="Primary">
+    <a class="brand" href="/" aria-label="DirectScribe home">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect x="1" y="1" width="30" height="30" rx="8" fill="#0b5fa5"></rect>
+        <g fill="#ffffff">
+          <rect x="7"  y="13" width="2.6" height="6"  rx="1.3"></rect>
+          <rect x="11" y="10" width="2.6" height="12" rx="1.3"></rect>
+          <rect x="15" y="7"  width="2.6" height="18" rx="1.3"></rect>
+          <rect x="19" y="11" width="2.6" height="10" rx="1.3"></rect>
+          <rect x="23" y="14" width="2.6" height="4"  rx="1.3"></rect>
+        </g>
+      </svg>
+      <span>DirectScribe</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="/" data-nav="product">Product</a></li>
+      <li><a href="/security/" data-nav="security">Security</a></li>
+      <li><a href="/pricing/" data-nav="pricing">Pricing</a></li>
+      <li><a href="/compliance/" data-nav="compliance">Compliance</a></li>
+      <li><a href="/support/" data-nav="support">Support</a></li>
+    </ul>
+    <a class="btn btn--primary btn--sm nav__cta" href="/download/" data-nav="download">Download</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="section section--wash">
+  <div class="container container--narrow">
+    <p class="eyebrow">Vendor setup · Transcription</p>
+    <h1>AWS Transcribe Medical</h1>
+    <p class="lead">AWS is coming to DirectScribe as a transcription option for practices that want the strongest compliance posture — a signed AWS BAA and a Canadian data region. It is not available at launch.</p>
+    <p class="pill-row"><span class="badge badge--soon">Coming soon</span> <span class="badge badge--info">Transcription (STT)</span> <span class="badge badge--ok">AWS BAA · ca-central-1</span></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow prose prose--wide">
+    <div class="callout callout--info">
+      <p class="callout__label">Coming soon</p>
+      <p class="mb-0">The AWS transcription path is a planned fast-follow. This page is a preview so you can plan; the vendor is not selectable in the app yet. When it ships, this guide will carry the full step-by-step setup.</p>
+    </div>
+
+    <h2>Why AWS, for maximum compliance</h2>
+    <ul class="iclist">
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>A BAA you can actually sign.</strong> AWS provides a Business Associate Agreement (via AWS Artifact) that covers eligible services including Transcribe Medical.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>Canadian data region.</strong> Processing can be pinned to <code>ca-central-1</code> for data-residency requirements.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>A purpose-built medical model.</strong> Transcribe Medical is tuned for clinical vocabulary.</span></li>
+    </ul>
+    <p class="muted">The trade-off is cost: at ~440 notes/month, AWS is materially more expensive than Deepgram or ElevenLabs — see the <a href="/cost/">cost breakdown</a>. It suits practices whose compliance requirements justify it.</p>
+
+    <h2>What setup will involve (preview)</h2>
+    <ol class="steps">
+      <li><h3>Create an IAM user with Transcribe Medical access</h3><p>In the AWS console, create an IAM user scoped to the Transcribe Medical permissions DirectScribe needs.</p></li>
+      <li><h3>Generate an access key pair</h3><p>Create an access key ID and secret access key for that user. Unlike the other vendors, AWS uses a key pair plus a region rather than a single key.</p></li>
+      <li><h3>Choose your region</h3><p>Select <code>ca-central-1</code> if you require Canadian data residency.</p></li>
+      <li><h3>Sign the AWS BAA</h3><p>Accept the AWS BAA through AWS Artifact before sending any patient-derived audio.</p></li>
+    </ol>
+
+    <div class="callout callout--legal">
+      <p class="callout__label">Not legal advice</p>
+      <p class="mb-0">Availability of a BAA and eligible-service scope are AWS terms that change; confirm current details with AWS. Whether this meets your obligations under PIPEDA and your provincial health-privacy law is a decision for you and your privacy advisor. See the <a href="/compliance/">Compliance Centre</a>.</p>
+    </div>
+
+    <p><a href="/support/">Let us know</a> if AWS support would make DirectScribe viable for your practice — it helps us prioritise.</p>
+
+    <div class="btn-row mt-2">
+      <a class="btn btn--ghost" href="/vendors/deepgram/">Use Deepgram today</a>
+      <a class="btn btn--ghost" href="/download/">Back to download</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about-col">
+        <a class="brand" href="/" aria-label="DirectScribe home">
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <rect x="1" y="1" width="30" height="30" rx="8" fill="#0b5fa5"></rect>
+            <g fill="#ffffff">
+              <rect x="7"  y="13" width="2.6" height="6"  rx="1.3"></rect>
+              <rect x="11" y="10" width="2.6" height="12" rx="1.3"></rect>
+              <rect x="15" y="7"  width="2.6" height="18" rx="1.3"></rect>
+              <rect x="19" y="11" width="2.6" height="10" rx="1.3"></rect>
+              <rect x="23" y="14" width="2.6" height="4"  rx="1.3"></rect>
+            </g>
+          </svg>
+          <span>DirectScribe</span>
+        </a>
+        <p class="footer-about">A Mac-native, bring-your-own-API-key dictation app for solo outpatient primary-care physicians in Canada. Built by a physician.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/">Overview</a></li>
+          <li><a href="/security/">Security</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/cost/">Cost breakdown</a></li>
+          <li><a href="/download/">Download</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Set up a vendor</h4>
+        <ul>
+          <li><a href="/vendors/deepgram/">Deepgram</a></li>
+          <li><a href="/vendors/elevenlabs/">ElevenLabs</a></li>
+          <li><a href="/vendors/openai/">OpenAI</a></li>
+          <li><a href="/vendors/anthropic/">Anthropic</a></li>
+          <li><a href="/vendors/lmstudio/">LM Studio</a></li>
+          <li><a href="/vendors/aws/">AWS</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Compliance &amp; help</h4>
+        <ul>
+          <li><a href="/compliance/">Compliance Centre</a></li>
+          <li><a href="/compliance/pia-template/">PIA template</a></li>
+          <li><a href="/compliance/consent/">Patient consent</a></li>
+          <li><a href="/guides/templates/">Template guide</a></li>
+          <li><a href="/support/">Support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p><strong>Not legal advice.</strong> DirectScribe is a documentation tool. Compliance materials on this site are general information to help you and your privacy advisor do your own assessment under PIPEDA and your province's health-privacy law (e.g., PHIPA in Ontario). They are not legal advice and do not create any professional relationship.</p>
+      <p>© 2026 DirectScribe · Made for macOS · This site runs no scripts and sets no cookies. · directscribe.ca</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

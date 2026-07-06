@@ -1,0 +1,94 @@
+<!--
+title: Writing your own templates
+description: A plain-language guide to authoring DirectScribe note templates — ALL-CAPS headings, bracketed placeholder conventions, and worked examples for SOAP notes, periodic health exams, and referral letters.
+nav:
+-->
+<section class="section section--wash">
+  <div class="container container--narrow">
+    <p class="eyebrow">Guide</p>
+    <h1>Writing your own templates</h1>
+    <p class="lead">Your templates are how DirectScribe shapes a rambling dictation into the note you actually want. They are plain text — no code — and take about five minutes to write once you know the two conventions.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow prose prose--wide">
+    <h2>Two conventions, that's it</h2>
+    <ul>
+      <li><strong>ALL-CAPS lines are headings.</strong> A line in capital letters, like <code>ASSESSMENT</code>, becomes a section heading the note is organised under. The app and the model both treat these as the fixed skeleton of your note.</li>
+      <li><strong>[Bracketed text] is a placeholder.</strong> Square brackets mark where content goes and describe what belongs there, like <code>[history of present illness]</code>. Write the description in plain language — the more specific, the better the fill.</li>
+    </ul>
+    <p>Everything else is literal text that appears in the note as written. That's the whole system.</p>
+
+    <h2>A worked example: SOAP visit</h2>
+    <p>Here is a complete, usable template:</p>
+    <div class="codeblock">CHIEF COMPLAINT
+[reason for the visit, briefly]
+
+SUBJECTIVE
+[history of present illness]
+[relevant past history, medications, allergies if mentioned]
+
+OBJECTIVE
+[vitals: BLOOD PRESSURE, heart rate, temperature if dictated]
+[physical exam findings]
+
+ASSESSMENT
+[numbered problem list with clinical impression]
+
+PLAN
+[investigations, treatment, patient instructions, follow-up]</div>
+    <p>Dictate the visit however it comes out — out of order, with asides — and the model sorts what you said under these headings, filling each placeholder from your words. You review and paste.</p>
+
+    <h2>Good placeholder habits</h2>
+    <ul>
+      <li><strong>Describe, don't abbreviate.</strong> <code>[history of present illness]</code> guides the model better than <code>[HPI]</code>.</li>
+      <li><strong>One idea per placeholder.</strong> Split <code>[exam and vitals]</code> into <code>[vitals]</code> and <code>[physical exam findings]</code> for cleaner output.</li>
+      <li><strong>Name specific fields you always want,</strong> like <code>[BLOOD PRESSURE]</code>, so they are never dropped.</li>
+      <li><strong>Keep headings stable.</strong> Consistent ALL-CAPS headings make your notes predictable and easy to skim in the EMR.</li>
+      <li><strong>Shorter is better.</strong> A tight template outperforms a sprawling one. Make one template per note type rather than one giant template.</li>
+    </ul>
+
+    <h2>More patterns</h2>
+    <h3>Periodic health exam</h3>
+    <div class="codeblock">PERIODIC HEALTH EXAM
+[screening topics discussed]
+[immunisations reviewed or updated]
+[lifestyle counselling]
+
+EXAM
+[vitals: BLOOD PRESSURE, BMI]
+[system-based exam findings]
+
+PLAN
+[screening ordered]
+[follow-up interval]</div>
+
+    <h3>Referral letter</h3>
+    <div class="codeblock">RE: [patient identifier — you fill this in the EMR, not by dictation]
+
+REASON FOR REFERRAL
+[the clinical question for the consultant]
+
+RELEVANT HISTORY
+[focused history and findings]
+
+CURRENT MEDICATIONS
+[medication list]
+
+REQUESTED
+[what you are asking the consultant to do]</div>
+
+    <h2>How the app uses template names</h2>
+    <p>You pick a template by name, and DirectScribe matches it exactly or fuzzily. If a dictation mentions a note type you have no template for, the app still saves your note — it will not silently invent and store a new template. Your template library stays exactly what you authored.</p>
+
+    <div class="callout callout--info">
+      <p class="mb-0"><strong>Test before clinic.</strong> Write a template, dictate a made-up sample case, and read the output. Adjust the placeholders until it lands the way you like — then it will behave the same on a real visit.</p>
+    </div>
+
+    <div class="btn-row mt-2">
+      <a class="btn btn--primary" href="/download/">Download DirectScribe</a>
+      <a class="btn btn--ghost" href="/compliance/">Compliance Centre</a>
+    </div>
+  </div>
+</section>

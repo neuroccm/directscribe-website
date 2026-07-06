@@ -1,0 +1,95 @@
+<!--
+title: Security
+description: How DirectScribe is built so that patient data has nowhere unexpected to go — no servers, keys in the Keychain, scheduled deletion, a tamper-evident audit log, and one disclosed network call. Canada-first (PIPEDA + PHIPA).
+nav: security
+-->
+<section class="section section--wash">
+  <div class="container container--narrow">
+    <p class="eyebrow">Security</p>
+    <h1>The design is the security story</h1>
+    <p class="lead">DirectScribe is shaped so the sensitive data has nowhere unexpected to go. There is no DirectScribe server, no account, and no analytics. This page states what the app does — and, just as plainly, what it does not.</p>
+    <p class="muted">Framed for Canada: your obligations sit under <strong>PIPEDA</strong> and your province's health-privacy law (in Ontario, <strong>PHIPA</strong>). We do not market this product against US HIPAA.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow prose prose--wide">
+    <div class="toc" aria-label="On this page">
+      <p>On this page</p>
+      <ul>
+        <li><a href="#choices">Seven design choices</a></li>
+        <li><a href="#locality">What runs where</a></li>
+        <li><a href="#deletion">Deletion, stated honestly</a></li>
+        <li><a href="#audit">The audit log — and what it is not</a></li>
+        <li><a href="#network">The one network call</a></li>
+        <li><a href="#licensing">Licensing, not DRM</a></li>
+        <li><a href="#limits">Limits we disclose</a></li>
+      </ul>
+    </div>
+
+    <h2 id="choices">Seven design choices</h2>
+    <ul class="iclist">
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>Only the physician's voice is ever recorded.</strong> DirectScribe records the physician for dictation. It is not an ambient scribe; the patient is never recorded, and there is no microphone open on the room.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>PHI never touches DirectScribe servers — there are none.</strong> Your recordings and notes go from your Mac straight to the vendors you chose. We operate no service that receives, stores, or sees your patients' data.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>API keys live in the macOS Keychain.</strong> Your vendor keys are stored by the system Keychain, protected by your login and FileVault — never written to plain configuration files and never sent to us.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>The app is sandboxed.</strong> DirectScribe runs in the macOS App Sandbox with least-privilege access, so it can reach only what it needs to do its job.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>Deletion runs on your schedule.</strong> A session-end action plus 7/30/90-day sweeps remove recordings, transcripts, and notes without you having to remember.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>The audit log is tamper-evident.</strong> Every transmission and deletion is hash-chained and sequence-checkpointed, and it is PHI-free by design.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>Licensing is offline.</strong> A license key is validated on your Mac. No account is created, and no server is contacted to let you work.</span></li>
+    </ul>
+
+    <h2 id="locality">What runs where</h2>
+    <p>"Local-first" is easy to overstate, so here is the precise version. Your recordings, templates, API keys, saved notes, and the audit log live on your Mac. Two steps use the internet, and only to the vendors you pick:</p>
+    <div class="table-wrap">
+      <table class="table">
+        <caption>The path of a note, at launch</caption>
+        <thead><tr><th scope="col">Step</th><th scope="col">Where it runs</th><th scope="col">What is sent</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Record</th><td>Your Mac</td><td>Nothing leaves yet — audio is captured locally.</td></tr>
+          <tr><th scope="row">Transcribe</th><td>Your chosen cloud STT vendor</td><td>The physician's audio, over TLS, to that vendor only.</td></tr>
+          <tr><th scope="row">Shape to template</th><td>Your chosen intelligence vendor — <em>or fully local</em> with LM Studio</td><td>The transcript text, to that vendor. With LM Studio it stays on your Mac.</td></tr>
+          <tr><th scope="row">Review &amp; paste</th><td>Your Mac → your EMR</td><td>You copy the finished note into your EMR by hand.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout--info">
+      <p class="mb-0">At launch, <strong>every transcription path is cloud</strong>. There is no fully on-device speech-to-text option yet. The only step that can run entirely on your Mac today is note-shaping, via LM Studio. We would rather say this than let a trust-sensitive buyer assume otherwise.</p>
+    </div>
+
+    <h2 id="deletion">Deletion, stated honestly</h2>
+    <p>When DirectScribe deletes an artifact, it is <strong>deleted from the file system on your schedule; FileVault protects residual storage; backups you configure may retain copies</strong>. We will not tell you it is gone from every disk, because that would not be true — and you deserve the accurate version.</p>
+    <p>Why the care? macOS uses the APFS file system, which is copy-on-write on modern SSDs. There is no per-file secure-erase, so deleting a file frees its blocks but can leave residue until those blocks are reused. The compensating control is <strong>FileVault</strong>: any residue stays as encrypted ciphertext. DirectScribe also marks its data directories to be excluded from Time Machine, but APFS local snapshots and any backup you run yourself can still hold copies the app cannot reach.</p>
+    <p>So the audit log proves the deletion <em>action</em> — not the absence of every copy. Keeping FileVault on and being deliberate about backups (see the <a href="/compliance/consent/">clinic checklist</a>) is what closes the gap.</p>
+
+    <h2 id="audit">The audit log — and what it is not</h2>
+    <p>DirectScribe keeps an append-only, PHI-free log. Each entry records that a transmission or a deletion happened — the vendor, the timestamp, the artifact type, and an opaque identifier. It never records note content, filenames, template names, or file paths. The chain is verified in the app, and a sequence checkpoint in the Keychain catches casual truncation.</p>
+    <div class="callout">
+      <p class="callout__label callout__label--neutral">What this log is</p>
+      <p class="mb-0">A <strong>transmission-and-deletion transparency record</strong> you can show a privacy reviewer to demonstrate where data went and when it was removed.</p>
+    </div>
+    <div class="callout callout--legal">
+      <p class="callout__label">What this log is not</p>
+      <p class="mb-0">It is <strong>not a PHIPA s.10.1 access-audit log</strong>. That section is enacted but not yet in force, and it concerns logging who <em>views</em> a patient's record. DirectScribe logs sends and deletes, not PHI access, and your <strong>EMR remains the system of record</strong> for the clinical note and its access history. We do not claim this log satisfies a regulatory audit obligation.</p>
+    </div>
+    <p><strong>Tamper-evidence, scoped.</strong> The hash chain detects an in-place edit to any past entry. The Keychain sequence checkpoint additionally detects casual tail-truncation. It does not make the log indelible — someone with full disk access could still delete a whole month's file. We do not use external anchoring or Merkle trees; that would be over-engineering for this product, and claiming indestructibility would be dishonest.</p>
+
+    <h2 id="network">The one network call the app makes on its own</h2>
+    <p>So that "no telemetry" is a claim you can verify with a network monitor rather than a promise you have to trust, here it is in full. Once a week, DirectScribe performs an <strong>update check</strong>: an HTTPS request to <code>directscribe.ca/version.json</code> to see whether a newer version exists. It compares version numbers and, if there is one, links this site's download page. It does not download anything automatically, does not follow any URL supplied by that file, and does not render any text from it.</p>
+    <p>That is the <strong>only</strong> request the app initiates by itself. There is <strong>no telemetry</strong>, no analytics, no crash reporting, no usage tracking, no phone-home. The update check has an off switch in Settings. Every other network request is one you triggered — a transcription or a note-shaping call — to a vendor you chose.</p>
+
+    <h2 id="licensing">Licensing is honesty enforcement, not DRM</h2>
+    <p>The license check is deliberately simple. It verifies a cryptographic signature offline and unlocks dictation; viewing, search, export, and deletion always work, even unlicensed or expired. We do not obfuscate the binary, add anti-debugging, or scatter secret checks — those are wrong for physicians and would not stop a determined bypass anyway. The real integrity control on the download itself is Apple notarization (see the <a href="/download/">download page</a>).</p>
+
+    <h2 id="limits">Limits we disclose</h2>
+    <ul>
+      <li><strong>Cloud transcription.</strong> At launch, speech-to-text always uses a cloud vendor. Choose one whose privacy terms you accept — the <a href="/vendors/deepgram/">vendor guides</a> lay out what each offers.</li>
+      <li><strong>APFS residue and backups.</strong> As above — deletion frees blocks but FileVault and backup discipline do the rest.</li>
+      <li><strong>LM Studio on localhost is unauthenticated between processes.</strong> If you run a local model, any process on your Mac could, in principle, bind the same local port. The app checks the server's response shape, and we recommend enabling LM Studio's optional bearer token. We disclose this rather than pretend the local path has no trade-offs.</li>
+    </ul>
+
+    <div class="btn-row mt-3">
+      <a class="btn btn--primary" href="/compliance/">Visit the Compliance Centre</a>
+      <a class="btn btn--ghost" href="/download/">Download DirectScribe</a>
+    </div>
+  </div>
+</section>
