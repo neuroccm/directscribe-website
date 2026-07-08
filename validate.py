@@ -239,6 +239,7 @@ def main():
                     err(where, f"missing in-page anchor {h}")
                 continue
             path, _, frag = h.partition("#")
+            path = path.split("?")[0]
             if not path.startswith("/"):
                 err(where, f"non-absolute internal link '{h}' (author links as /...)")
                 continue

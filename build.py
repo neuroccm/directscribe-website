@@ -11,6 +11,7 @@ static files that Cloudflare Pages serves directly with no build step.
 Usage:  python3 build.py
 Output: dist/  (commit it, or set it as the Cloudflare Pages output directory)
 """
+import hashlib
 import re
 import shutil
 from pathlib import Path
@@ -65,6 +66,7 @@ def apply_active_nav(layout, nav):
 
 def main():
     layout = (SRC / "layout.html").read_text(encoding="utf-8")
+    styles_hash = hashlib.sha256((SRC / "styles.css").read_bytes()).hexdigest()[:10]
 
     if DIST.exists():
         shutil.rmtree(DIST)
@@ -80,6 +82,7 @@ def main():
 
         html = layout
         html = apply_active_nav(html, meta.get("nav", ""))
+        html = html.replace("{{STYLES_HASH}}", styles_hash)
         html = html.replace("{{TITLE}}", meta.get("title", "DirectScribe"))
         html = html.replace("{{DESCRIPTION}}", meta.get("description", ""))
         html = html.replace("{{CANONICAL}}", canonical)
