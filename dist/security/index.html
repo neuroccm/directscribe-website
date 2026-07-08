@@ -41,7 +41,7 @@
       <li><a href="/compliance/" data-nav="compliance">Compliance</a></li>
       <li><a href="/support/" data-nav="support">Support</a></li>
     </ul>
-    <a class="btn btn--primary btn--sm nav__cta" href="/download/" data-nav="download">Download</a>
+    <a class="btn btn--primary btn--sm nav__cta" href="/contact/" data-nav="contact">Contact us</a>
   </nav>
 </header>
 
@@ -117,11 +117,11 @@
     <p><strong>Tamper-evidence, scoped.</strong> The hash chain detects an in-place edit to any past entry. The Keychain sequence checkpoint additionally detects casual tail-truncation. It does not make the log indelible — someone with full disk access could still delete a whole month's file. We do not use external anchoring or Merkle trees; that would be over-engineering for this product, and claiming indestructibility would be dishonest.</p>
 
     <h2 id="network">The one network call the app makes on its own</h2>
-    <p>So that "no telemetry" is a claim you can verify with a network monitor rather than a promise you have to trust, here it is in full. Once a week, DirectScribe performs an <strong>update check</strong>: an HTTPS request to <code>directscribe.ca/version.json</code> to see whether a newer version exists. It compares version numbers and, if there is one, links this site's download page. It does not download anything automatically, does not follow any URL supplied by that file, and does not render any text from it.</p>
+    <p>So that "no telemetry" is a claim you can verify with a network monitor rather than a promise you have to trust, here it is in full. Once a week, DirectScribe performs an <strong>update check</strong>: an HTTPS request to <code>directscribe.ca/version.json</code> to see whether a newer version exists. It compares version numbers and, if there is one, links to this site. It does not download anything automatically, does not follow any URL supplied by that file, and does not render any text from it.</p>
     <p>That is the <strong>only</strong> request the app initiates by itself. There is <strong>no telemetry</strong>, no analytics, no crash reporting, no usage tracking, no phone-home. The update check has an off switch in Settings. Every other network request is one you triggered — a transcription or a note-shaping call — to a vendor you chose.</p>
 
     <h2 id="licensing">Licensing is honesty enforcement, not DRM</h2>
-    <p>The license check is deliberately simple. It verifies a cryptographic signature offline and unlocks dictation; viewing, search, export, and deletion always work, even unlicensed or expired. We do not obfuscate the binary, add anti-debugging, or scatter secret checks — those are wrong for physicians and would not stop a determined bypass anyway. The real integrity control on the download itself is Apple notarization (see the <a href="/download/">download page</a>).</p>
+    <p>The license check is deliberately simple. It verifies a cryptographic signature offline and unlocks dictation; viewing, search, export, and deletion always work, even unlicensed or expired. We do not obfuscate the binary, add anti-debugging, or scatter secret checks — those are wrong for physicians and would not stop a determined bypass anyway. The real integrity control on the app itself is Apple notarization.</p>
 
     <h2 id="limits">Limits we disclose</h2>
     <ul>
@@ -132,7 +132,7 @@
 
     <div class="btn-row mt-3">
       <a class="btn btn--primary" href="/compliance/">Visit the Compliance Centre</a>
-      <a class="btn btn--ghost" href="/download/">Download DirectScribe</a>
+      <a class="btn btn--ghost" href="/contact/">Contact us</a>
     </div>
   </div>
 </section>
@@ -164,7 +164,7 @@
           <li><a href="/security/">Security</a></li>
           <li><a href="/pricing/">Pricing</a></li>
           <li><a href="/cost/">Cost breakdown</a></li>
-          <li><a href="/download/">Download</a></li>
+          <li><a href="/contact/">Contact us</a></li>
         </ul>
       </div>
       <div>

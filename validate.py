@@ -123,7 +123,6 @@ REQUIRE = [
     ("/pricing", "$399"),
     ("/compliance/index", "s.10.1"),
     ("/compliance/consent", "filevault"),
-    ("/download", "sha-256"),
     ("/support", "month"),
 ]
 

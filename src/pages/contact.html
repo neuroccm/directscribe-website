@@ -1,0 +1,49 @@
+<!--
+title: Contact us
+description: Start your 7-day DirectScribe trial. Tell us who you are and your CPSO number, and we'll be in touch to set up access — no self-serve download.
+nav:
+-->
+<section class="section section--wash">
+  <div class="container container--narrow center">
+    <p class="eyebrow">Contact us</p>
+    <h1>Start your 7-day trial</h1>
+    <p class="lead measure">DirectScribe isn't a self-serve download. During this early access period we onboard physicians one at a time — tell us a little about yourself below and we'll be in touch to set up your trial.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container container--narrow">
+    <form class="form" action="mailto:directscribe@ccmd.io?subject=DirectScribe%207-day%20trial%20referral" method="post" enctype="text/plain">
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="Name" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="cpso">CPSO number</label>
+        <input type="text" id="cpso" name="CPSO number" inputmode="numeric" required>
+        <p class="field__hint">Your College of Physicians and Surgeons of Ontario registration number. DirectScribe's early access is currently open to Ontario physicians.</p>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="phone">Telephone</label>
+        <input type="tel" id="phone" name="Telephone" autocomplete="tel" required>
+      </div>
+      <button class="btn btn--primary" type="submit">Send to DirectScribe</button>
+    </form>
+
+    <div class="callout callout--info">
+      <p class="callout__label">Where this goes</p>
+      <p class="mb-0">This form opens an email addressed to <a href="mailto:directscribe@ccmd.io">directscribe@ccmd.io</a> from your own mail app — the same "no DirectScribe servers" principle as the app itself. Nothing you type here is stored on a DirectScribe server; it goes straight from your device to us.</p>
+    </div>
+
+    <p class="muted">If your email app doesn't open automatically, write to us directly at <a href="mailto:directscribe@ccmd.io?subject=DirectScribe%207-day%20trial%20referral&body=Name%3A%0ACPSO%20number%3A%0AEmail%3A%0ATelephone%3A">directscribe@ccmd.io</a> with your name, CPSO number, email, and telephone number.</p>
+
+    <div class="btn-row mt-2">
+      <a class="btn btn--ghost" href="/pricing/">See pricing</a>
+      <a class="btn btn--ghost" href="/security/">Read the security design</a>
+    </div>
+  </div>
+</section>

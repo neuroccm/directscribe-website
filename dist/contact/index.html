@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Download · DirectScribe</title>
-<meta name="description" content="Download DirectScribe for macOS. Set up your vendor API keys first so trial days aren't spent during signup, then start your 7-day trial. Notarized DMG with a published SHA-256.">
-<link rel="canonical" href="https://directscribe.ca/download/">
+<title>Contact us · DirectScribe</title>
+<meta name="description" content="Start your 7-day DirectScribe trial. Tell us who you are and your CPSO number, and we'll be in touch to set up access — no self-serve download.">
+<link rel="canonical" href="https://directscribe.ca/contact/">
 <meta name="theme-color" content="#0a2540">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/styles.css">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DirectScribe">
-<meta property="og:title" content="Download · DirectScribe">
-<meta property="og:description" content="Download DirectScribe for macOS. Set up your vendor API keys first so trial days aren't spent during signup, then start your 7-day trial. Notarized DMG with a published SHA-256.">
-<meta property="og:url" content="https://directscribe.ca/download/">
+<meta property="og:title" content="Contact us · DirectScribe">
+<meta property="og:description" content="Start your 7-day DirectScribe trial. Tell us who you are and your CPSO number, and we'll be in touch to set up access — no self-serve download.">
+<meta property="og:url" content="https://directscribe.ca/contact/">
 <meta name="twitter:card" content="summary">
 </head>
 <body>
@@ -41,68 +41,49 @@
       <li><a href="/compliance/" data-nav="compliance">Compliance</a></li>
       <li><a href="/support/" data-nav="support">Support</a></li>
     </ul>
-    <a class="btn btn--primary btn--sm nav__cta" href="/download/" data-nav="download" aria-current="page">Download</a>
+    <a class="btn btn--primary btn--sm nav__cta" href="/contact/" data-nav="contact">Contact us</a>
   </nav>
 </header>
 
 <main id="main">
 <section class="section section--wash">
   <div class="container container--narrow center">
-    <p class="eyebrow">Download</p>
-    <h1>Get DirectScribe for macOS</h1>
-    <p class="lead measure">A signed, notarized app that installs like any other Mac app. Do the vendor setup first — then start your seven-day trial so none of it is spent waiting on a signup email.</p>
+    <p class="eyebrow">Contact us</p>
+    <h1>Start your 7-day trial</h1>
+    <p class="lead measure">DirectScribe isn't a self-serve download. During this early access period we onboard physicians one at a time — tell us a little about yourself below and we'll be in touch to set up your trial.</p>
   </div>
 </section>
 
 <section class="section section--tight">
   <div class="container container--narrow">
-    <ol class="steps">
-      <li>
-        <h3>Set up your vendor keys first</h3>
-        <p>Pick a transcription vendor and an intelligence vendor, create your API keys, and keep them handy. The step-by-step guides cover each one: <a href="/vendors/deepgram/">Deepgram</a>, <a href="/vendors/elevenlabs/">ElevenLabs</a>, <a href="/vendors/openai/">OpenAI</a>, <a href="/vendors/anthropic/">Anthropic</a>, <a href="/vendors/lmstudio/">LM Studio</a> (fully local).</p>
-        <p class="muted">Doing this first matters: your 7-day trial clock starts when you choose, so you don't want to burn days waiting for a vendor to approve an account.</p>
-      </li>
-      <li>
-        <h3>Download the notarized DMG</h3>
-        <p>Universal build for Apple silicon and Intel Macs running macOS 26.0 or later.</p>
-        <p class="btn-row">
-          <a class="btn btn--primary" href="https://directscribe.ca/downloads/DirectScribe-1.13.0.dmg">Download DirectScribe 1.13.0 (.dmg)</a>
-          <span class="badge badge--warn">Placeholder link — owner to replace at release</span>
-        </p>
-        <dl class="kv">
-          <dt>Version</dt><dd>1.13.0 (build 20)</dd>
-          <dt>Requires</dt><dd>macOS 26.0 or later</dd>
-          <dt>Signing</dt><dd>Developer ID, hardened runtime, Apple-notarized</dd>
-        </dl>
-      </li>
-      <li>
-        <h3>Open it and drag to Applications</h3>
-        <p>Because the DMG is notarized, macOS Gatekeeper opens it without the "unidentified developer" warning. Drag DirectScribe into your Applications folder and launch it.</p>
-      </li>
-      <li>
-        <h3>Paste your keys into Settings</h3>
-        <p>Open Settings → Providers and paste the API keys you created in step one. They are stored in the macOS Keychain — never in plain files, never sent to us.</p>
-      </li>
-      <li>
-        <h3>Start your 7-day trial</h3>
-        <p>When you're ready to dictate, start the trial. Viewing, search, and export always work; the trial simply unlocks recording and note generation. Buy a licence whenever it fits — no account required.</p>
-      </li>
-    </ol>
-  </div>
-</section>
+    <form class="form" action="mailto:directscribe@ccmd.io?subject=DirectScribe%207-day%20trial%20referral" method="post" enctype="text/plain">
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="Name" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="cpso">CPSO number</label>
+        <input type="text" id="cpso" name="CPSO number" inputmode="numeric" required>
+        <p class="field__hint">Your College of Physicians and Surgeons of Ontario registration number. DirectScribe's early access is currently open to Ontario physicians.</p>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="phone">Telephone</label>
+        <input type="tel" id="phone" name="Telephone" autocomplete="tel" required>
+      </div>
+      <button class="btn btn--primary" type="submit">Send to DirectScribe</button>
+    </form>
 
-<section class="section section--tint">
-  <div class="container container--narrow prose prose--wide">
-    <h2>Verify your download</h2>
-    <p>Every release publishes the DMG's SHA-256 checksum. After downloading, you can confirm the file is byte-for-byte the one we published. In Terminal:</p>
-    <div class="codeblock">shasum -a 256 ~/Downloads/DirectScribe-1.13.0.dmg</div>
-    <p>Compare the output against the published value:</p>
-    <p class="hash">SHA-256: 0000000000000000000000000000000000000000000000000000000000000000</p>
-    <div class="callout callout--legal">
-      <p class="callout__label">Placeholder</p>
-      <p class="mb-0">The checksum above is a placeholder. The real SHA-256 is generated by the release script when the notarized DMG is built and must be pasted here before the download link goes live.</p>
+    <div class="callout callout--info">
+      <p class="callout__label">Where this goes</p>
+      <p class="mb-0">This form opens an email addressed to <a href="mailto:directscribe@ccmd.io">directscribe@ccmd.io</a> from your own mail app — the same "no DirectScribe servers" principle as the app itself. Nothing you type here is stored on a DirectScribe server; it goes straight from your device to us.</p>
     </div>
-    <p class="muted">Notarization is the primary integrity control — an un-notarized or altered DMG will not open cleanly on a customer's Mac. The published checksum is a secondary check for your own records and for a privacy assessment.</p>
+
+    <p class="muted">If your email app doesn't open automatically, write to us directly at <a href="mailto:directscribe@ccmd.io?subject=DirectScribe%207-day%20trial%20referral&body=Name%3A%0ACPSO%20number%3A%0AEmail%3A%0ATelephone%3A">directscribe@ccmd.io</a> with your name, CPSO number, email, and telephone number.</p>
+
     <div class="btn-row mt-2">
       <a class="btn btn--ghost" href="/pricing/">See pricing</a>
       <a class="btn btn--ghost" href="/security/">Read the security design</a>
@@ -137,7 +118,7 @@
           <li><a href="/security/">Security</a></li>
           <li><a href="/pricing/">Pricing</a></li>
           <li><a href="/cost/">Cost breakdown</a></li>
-          <li><a href="/download/">Download</a></li>
+          <li><a href="/contact/">Contact us</a></li>
         </ul>
       </div>
       <div>

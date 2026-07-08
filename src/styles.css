@@ -256,7 +256,7 @@ figure.mockup-wrap { margin: 0; }
 .callout h3, .callout h4 { margin-top: 0; }
 .callout--legal { border-left-color: var(--warn-ink); background: var(--warn-bg); border-color: var(--warn-border); }
 .callout--legal strong { color: var(--warn-ink); }
-.callout--info { border-left-color: var(--brand); background: var(--blue-50); border-color: #cfe2f4; }
+.callout--info { border-left-color: var(--brand); background: var(--blue-50); border-color: #cfe2f4; color: var(--ink); }
 .callout__label { font-size: 0.72rem; font-weight: 720; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warn-ink); margin: 0 0 0.35rem; }
 .callout--info .callout__label { color: var(--brand-strong); }
 .callout__label--neutral { color: var(--brand-strong); }
@@ -342,12 +342,18 @@ code.inline { font-family: var(--font-mono); font-size: 0.9em; background: var(-
 .price li .ic { color: var(--brand); flex: none; margin-top: 3px; }
 .price .price__cta { margin-top: auto; }
 
-/* ----- Screenshot placeholders (labeled — app UI not finalized) ----- */
-.shot { border: 1px solid var(--hairline); background: linear-gradient(135deg, #f4f7fb, #e6edf5); border-radius: var(--r); min-height: 150px; display: grid; place-items: center; text-align: center; padding: 1.5rem 1.25rem; margin: 1.25rem 0; }
-.shot__inner { max-width: 42ch; }
-.shot .ic { color: #9db3c8; margin-bottom: 0.4rem; }
-.shot b { color: var(--navy); display: block; font-size: 0.95rem; }
-.shot span { color: var(--muted); font-size: 0.82rem; display: block; margin-top: 0.2rem; }
+/* ----- Form (contact / intake) ----- */
+.form { max-width: 30rem; margin: 1.75rem 0; }
+.field { display: grid; gap: 0.35rem; margin-bottom: 1.15rem; }
+.field label { font-weight: 620; color: var(--navy); font-size: 0.92rem; }
+.field input {
+  font: inherit; font-size: 0.98rem; color: var(--ink); background: var(--white);
+  border: 1px solid var(--hairline-strong); border-radius: var(--r-sm);
+  padding: 0.68rem 0.85rem; width: 100%;
+}
+.field input:focus-visible { outline: 3px solid var(--brand); outline-offset: 1px; }
+.field__hint { font-size: 0.82rem; color: var(--muted); margin: 0; }
+.form .btn { margin-top: 0.35rem; }
 
 /* ----- Anchored section titles ----- */
 .sec-head { max-width: 46rem; margin-bottom: 2rem; }
