@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get started — the setup checklist · DirectScribe</title>
+<meta name="description" content="What you need for DirectScribe to work — a DirectScribe subscription, a transcription vendor API key, an intelligence provider (cloud key or fully local via LM Studio), and optional Dropbox template sync to share templates across your Macs.">
+<link rel="canonical" href="https://directscribe.ca/setup/">
+<meta name="theme-color" content="#0a2540">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/styles.css?v=4637494ba7">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DirectScribe">
+<meta property="og:title" content="Get started — the setup checklist · DirectScribe">
+<meta property="og:description" content="What you need for DirectScribe to work — a DirectScribe subscription, a transcription vendor API key, an intelligence provider (cloud key or fully local via LM Studio), and optional Dropbox template sync to share templates across your Macs.">
+<meta property="og:url" content="https://directscribe.ca/setup/">
+<meta name="twitter:card" content="summary">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="nav container" aria-label="Primary">
+    <a class="brand" href="/" aria-label="DirectScribe home">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect x="1" y="1" width="30" height="30" rx="8" fill="#0b5fa5"></rect>
+        <g fill="#ffffff">
+          <rect x="7"  y="13" width="2.6" height="6"  rx="1.3"></rect>
+          <rect x="11" y="10" width="2.6" height="12" rx="1.3"></rect>
+          <rect x="15" y="7"  width="2.6" height="18" rx="1.3"></rect>
+          <rect x="19" y="11" width="2.6" height="10" rx="1.3"></rect>
+          <rect x="23" y="14" width="2.6" height="4"  rx="1.3"></rect>
+        </g>
+      </svg>
+      <span>DirectScribe</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="/" data-nav="product">Product</a></li>
+      <li><a href="/setup/" data-nav="getstarted" aria-current="page">Get started</a></li>
+      <li><a href="/security/" data-nav="security">Security</a></li>
+      <li><a href="/pricing/" data-nav="pricing">Pricing</a></li>
+      <li><a href="/compliance/" data-nav="compliance">Compliance</a></li>
+      <li><a href="/support/" data-nav="support">Support</a></li>
+    </ul>
+    <a class="btn btn--primary btn--sm nav__cta" href="/contact/" data-nav="contact">Contact us</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="section section--wash">
+  <div class="container container--narrow">
+    <p class="eyebrow">Setup checklist</p>
+    <h1>What you need for DirectScribe to work</h1>
+    <p class="lead">DirectScribe is bring-your-own-vendor: you supply the transcription and intelligence, and DirectScribe ties them into your dictation workflow. Here is everything to have in place, start to finish. Set the vendor keys up first so your trial days aren't spent during signup.</p>
+    <p class="pill-row"><span class="badge badge--info">3 required steps</span> <span class="badge">1 optional</span> <span class="badge badge--ok">~15 minutes</span></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow prose prose--wide">
+    <ol class="steps">
+      <li>
+        <h3>1 · A DirectScribe subscription <span class="badge badge--info">Required</span></h3>
+        <p>DirectScribe is <strong>CAD $39/month</strong> or <strong>$399/year</strong>, with a <strong>7-day trial</strong>. Onboarding is individual — access is confirmed against your CPSO registration — so start from the <a href="/contact/">contact page</a>. Your licence key arrives <strong>by email</strong>: there is no account to create and no server that can lock you out mid-clinic. See <a href="/pricing/">pricing</a> for the full breakdown.</p>
+      </li>
+      <li>
+        <h3>2 · A transcription vendor key — speech → text <span class="badge badge--info">Required</span></h3>
+        <p>This turns your dictation into text. Pick <strong>one</strong> cloud transcription vendor, create an API key with them, and paste it into <strong>Settings → API Keys</strong> in the app:</p>
+        <ul>
+          <li><strong><a href="/vendors/deepgram/">Deepgram</a></strong> — recommended default (medical model, lowest cost, BAA on request).</li>
+          <li><strong><a href="/vendors/elevenlabs/">ElevenLabs</a></strong> — comparable quality (BAA on enterprise plans only).</li>
+        </ul>
+        <p class="muted">At launch, transcription always uses a cloud vendor you choose — see <a href="/cost/">the cost breakdown</a> (typically ~CAD $4–15/month at solo volume).</p>
+      </li>
+      <li>
+        <h3>3 · An intelligence provider — text → your template <span class="badge badge--info">Required</span></h3>
+        <p>This shapes the raw transcript into your note template. Choose <strong>one</strong>:</p>
+        <ul>
+          <li><strong>A cloud provider</strong> — <a href="/vendors/anthropic/">Anthropic (Claude)</a> or <a href="/vendors/openai/">OpenAI</a>. Create an API key and paste it into <strong>Settings → Providers → Intelligence</strong>.</li>
+          <li><strong>Or run it fully locally</strong> — with <a href="/vendors/lmstudio/">LM Studio</a> on the same Mac, note-shaping happens on-device with no API key, no cloud, and no per-token cost. DirectScribe only allows a loopback address, so the transcript never leaves your Mac.</li>
+        </ul>
+        <p class="muted">Every API key you enter is stored in the macOS Keychain, and you pay each vendor directly — no DirectScribe markup.</p>
+      </li>
+      <li>
+        <h3>4 · Dropbox for templates across your Macs <span class="badge">Optional</span></h3>
+        <p>If you work from more than one Mac — clinic, laptop, home — point DirectScribe's <strong>Template Sync</strong> (Settings → Sync) at a Dropbox folder so your templates follow you. It syncs <strong>your note templates and style guide only</strong>. Your recordings, transcripts, and saved notes are <strong>never</strong> synced — those stay on each Mac and delete on your retention schedule. If you use a single Mac, skip this step.</p>
+      </li>
+    </ol>
+
+    <div class="callout callout--info mt-2">
+      <p class="callout__label">Where each step runs</p>
+      <p class="mb-0">Recording and your files stay on your Mac. Transcription always uses your chosen cloud vendor. Note-shaping uses your chosen vendor — or runs fully on your Mac with LM Studio. Keys, templates, notes, and the transparency log live on your Mac; the only cross-machine copy is the optional Dropbox template sync above.</p>
+    </div>
+
+    <div class="btn-row mt-2">
+      <a class="btn btn--primary" href="/contact/">Start your 7-day trial</a>
+      <a class="btn btn--ghost" href="/pricing/">See pricing</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about-col">
+        <a class="brand" href="/" aria-label="DirectScribe home">
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <rect x="1" y="1" width="30" height="30" rx="8" fill="#0b5fa5"></rect>
+            <g fill="#ffffff">
+              <rect x="7"  y="13" width="2.6" height="6"  rx="1.3"></rect>
+              <rect x="11" y="10" width="2.6" height="12" rx="1.3"></rect>
+              <rect x="15" y="7"  width="2.6" height="18" rx="1.3"></rect>
+              <rect x="19" y="11" width="2.6" height="10" rx="1.3"></rect>
+              <rect x="23" y="14" width="2.6" height="4"  rx="1.3"></rect>
+            </g>
+          </svg>
+          <span>DirectScribe</span>
+        </a>
+        <p class="footer-about">A Mac-native, bring-your-own-API-key dictation app for physicians in private practice across Canada. Built by a physician.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/">Overview</a></li>
+          <li><a href="/security/">Security</a></li>
+          <li><a href="/pricing/">Pricing</a></li>
+          <li><a href="/cost/">Cost breakdown</a></li>
+          <li><a href="/contact/">Contact us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Set up a vendor</h4>
+        <ul>
+          <li><a href="/vendors/deepgram/">Deepgram</a></li>
+          <li><a href="/vendors/elevenlabs/">ElevenLabs</a></li>
+          <li><a href="/vendors/openai/">OpenAI</a></li>
+          <li><a href="/vendors/anthropic/">Anthropic</a></li>
+          <li><a href="/vendors/lmstudio/">LM Studio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Compliance &amp; help</h4>
+        <ul>
+          <li><a href="/setup/">Get started</a></li>
+          <li><a href="/compliance/">Compliance Centre</a></li>
+          <li><a href="/compliance/pia-template/">PIA template</a></li>
+          <li><a href="/compliance/consent/">Patient consent</a></li>
+          <li><a href="/guides/templates/">Template guide</a></li>
+          <li><a href="/support/">Support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p><strong>Not legal advice.</strong> DirectScribe is a documentation tool. Compliance materials on this site are general information to help you and your privacy advisor do your own assessment under PIPEDA and your province's health-privacy law (e.g., PHIPA in Ontario). They are not legal advice and do not create any professional relationship.</p>
+      <p>© 2026 DirectScribe · Made for macOS · This site runs no scripts and sets no cookies. · directscribe.ca</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

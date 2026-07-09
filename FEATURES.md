@@ -19,9 +19,9 @@ the site — if a feature's wording changes there, it should change here too.
 - **Review and paste — no EMR integration.** The finished note pastes into
   your EMR as plain text. DirectScribe never integrates with or writes to
   your EMR directly. *(Home, Security)*
-- **Only the physician's voice is ever recorded.** Not an ambient scribe —
-  no microphone open on the room, the patient is never recorded. *(Home,
-  Security, Compliance)*
+- **Your dictation, not the room.** The physician dictates into the mic and
+  DirectScribe captures their voice — it isn't an ambient scribe, with no
+  microphone left open on the visit. *(Home, Security, Compliance)*
 - **Illustrative in-app mockup on the homepage** shows the dictation → SOAP
   note flow with ALL-CAPS headings and a bracketed placeholder token.
   *(Home)*
@@ -35,9 +35,7 @@ the site — if a feature's wording changes there, it should change here too.
   any time; no data migration, no reinstall. *(Home, Compliance, Support)*
 - **Launch transcription vendors:** Deepgram (recommended default, BAA on
   request, ~CAD $8/mo at ~440 notes) and ElevenLabs (BAA on enterprise plans
-  only, ~CAD $7–12/mo). **Coming soon:** AWS Transcribe Medical (self-serve
-  BAA, `ca-central-1` Canadian region, ~15× the cost of Deepgram/ElevenLabs).
-  *(Vendor guides, Cost)*
+  only, ~CAD $7–12/mo). *(Vendor guides, Cost)*
 - **Intelligence vendors:** OpenAI (BAA by email to individuals, ~CAD
   $2–8/mo), Anthropic (small-customer BAA status unverified — treated as
   conditional), and LM Studio for fully local note-shaping (no vendor, no

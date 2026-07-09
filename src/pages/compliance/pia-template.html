@@ -34,7 +34,7 @@ nav: compliance
 
     <h2 id="s1">1. Tool overview and purpose</h2>
     <p><em>Prompt:</em> Describe the tool, why you are using it, and its scope.</p>
-    <p><em>DirectScribe reference you can cite:</em> DirectScribe is a Mac-native dictation tool. The physician dictates; the audio is transcribed by a chosen cloud vendor and shaped into the physician's own note templates by a chosen intelligence vendor; the physician reviews and pastes the note into the EMR. Only the physician's voice is recorded — it is not an ambient scribe, and the patient is not recorded. There is no DirectScribe server.</p>
+    <p><em>DirectScribe reference you can cite:</em> DirectScribe is a Mac-native dictation tool. The physician dictates; the audio is transcribed by a chosen cloud vendor and shaped into the physician's own note templates by a chosen intelligence vendor; the physician reviews and pastes the note into the EMR. It is not an ambient scribe — there is no microphone left open on the room. The physician dictates a summary into the mic and DirectScribe captures that dictation, not the visit conversation. There is no DirectScribe server.</p>
 
     <h2 id="s2">2. Data inventory and flows</h2>
     <p><em>Prompt:</em> List each data element, where it originates, where it is sent, and how long it is kept.</p>
@@ -68,7 +68,6 @@ nav: compliance
           <tr><td><a href="/vendors/openai/">OpenAI</a></td><td>Intelligence</td><td>BAA by email to individuals</td></tr>
           <tr><td><a href="/vendors/anthropic/">Anthropic</a></td><td>Intelligence</td><td>Small-customer BAA status being verified — treat as conditional</td></tr>
           <tr><td><a href="/vendors/lmstudio/">LM Studio</a></td><td>Intelligence (local)</td><td>No external vendor; no agreement needed</td></tr>
-          <tr><td><a href="/vendors/aws/">AWS Transcribe Medical</a></td><td>Transcription (coming soon)</td><td>AWS BAA via Artifact; ca-central-1</td></tr>
         </tbody>
       </table>
     </div>

@@ -36,6 +36,7 @@
     </a>
     <ul class="nav__links">
       <li><a href="/" data-nav="product">Product</a></li>
+      <li><a href="/setup/" data-nav="getstarted">Get started</a></li>
       <li><a href="/security/" data-nav="security">Security</a></li>
       <li><a href="/pricing/" data-nav="pricing">Pricing</a></li>
       <li><a href="/compliance/" data-nav="compliance" aria-current="page">Compliance</a></li>
@@ -92,7 +93,7 @@
         <thead><tr><th scope="col">Assessment question</th><th scope="col">How DirectScribe is designed</th></tr></thead>
         <tbody>
           <tr><th scope="row">Who receives PHI?</th><td>Only the transcription and intelligence vendors you choose. There is no DirectScribe server in the path.</td></tr>
-          <tr><th scope="row">Is the patient recorded?</th><td>No. Only the physician's voice is recorded for dictation; it is not an ambient scribe.</td></tr>
+          <tr><th scope="row">Is the patient recorded?</th><td>The physician dictates into the mic and DirectScribe captures that dictation. It is not an ambient scribe — there is no microphone left open on the room recording the visit conversation.</td></tr>
           <tr><th scope="row">Where are credentials stored?</th><td>API keys are held in the macOS Keychain, protected by your login and FileVault.</td></tr>
           <tr><th scope="row">How long is data kept?</th><td>On your retention window (7/30/90 days) plus a session-end delete. Deletion is logged.</td></tr>
           <tr><th scope="row">Can you evidence data flows?</th><td>Yes — a PHI-free, tamper-evident transparency log records every transmission and deletion.</td></tr>
@@ -149,12 +150,12 @@
           <li><a href="/vendors/openai/">OpenAI</a></li>
           <li><a href="/vendors/anthropic/">Anthropic</a></li>
           <li><a href="/vendors/lmstudio/">LM Studio</a></li>
-          <li><a href="/vendors/aws/">AWS</a></li>
         </ul>
       </div>
       <div>
         <h4>Compliance &amp; help</h4>
         <ul>
+          <li><a href="/setup/">Get started</a></li>
           <li><a href="/compliance/">Compliance Centre</a></li>
           <li><a href="/compliance/pia-template/">PIA template</a></li>
           <li><a href="/compliance/consent/">Patient consent</a></li>

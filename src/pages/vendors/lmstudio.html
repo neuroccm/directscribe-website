@@ -16,7 +16,7 @@ nav:
   <div class="container container--narrow prose prose--wide">
     <dl class="kv">
       <dt>Role in DirectScribe</dt><dd>Intelligence — molds the transcript into your note template.</dd>
-      <dt>Where the text goes</dt><dd>Only to a server running on your own Mac (loopback). This step runs entirely on your machine; no third party receives the transcript.</dd>
+      <dt>Where the text goes</dt><dd>Only to a loopback server on this same Mac. DirectScribe accepts only a loopback base URL (<code>127.0.0.1</code> / <code>localhost</code>) and rejects any remote host — even over HTTPS — so the transcript never leaves this device.</dd>
       <dt>Privacy paperwork</dt><dd>None — there is no external vendor to sign an agreement with.</dd>
       <dt>Cost</dt><dd>No API fee. You provide the hardware and electricity.</dd>
     </dl>
@@ -30,14 +30,14 @@ nav:
       <li><h3>Download a model</h3><p>In LM Studio, search for and download an instruction-tuned model that fits your Mac's memory (a Gemma- or Llama-class instruct model is a good start).</p>
       </li>
       <li><h3>Start the local server</h3><p>Open LM Studio's <strong>Developer / Local Server</strong> tab, load your model, and start the server. It listens on <code>http://localhost:1234/v1</code> by default.</p></li>
-      <li><h3>Point DirectScribe at it</h3><p>Open <strong>Settings → Providers → Intelligence</strong>, choose <strong>LM Studio</strong>, set the base URL to <code>http://localhost:1234/v1</code>, and pick your loaded model from the list.</p>
+      <li><h3>Point DirectScribe at it</h3><p>Open <strong>Settings → Providers → Intelligence</strong>, choose <strong>LM Studio</strong>, and set the base URL to <code>http://localhost:1234/v1</code>. Leave the model field blank to use whatever model the server has loaded, or type a specific model identifier. The base URL must stay on <code>localhost</code> — DirectScribe rejects any non-loopback address.</p>
       </li>
     </ol>
 
     <h2>A local-path trade-off, disclosed</h2>
     <div class="callout callout--legal">
       <p class="callout__label">Enable the bearer token</p>
-      <p class="mb-0">On macOS, a local server on <code>localhost</code> is not authenticated between processes — in principle another program on your Mac could bind the same port. DirectScribe permits plaintext HTTP only for loopback addresses and checks the server's response shape, but we recommend turning on LM Studio's optional <strong>bearer token</strong> and entering it in DirectScribe for an extra layer. We disclose this rather than pretend the local path has no trade-offs.</p>
+      <p class="mb-0">On macOS, a local server on <code>localhost</code> is not authenticated between processes — in principle another program on your Mac could bind the same port. DirectScribe accepts only a loopback base URL (rejecting every remote host, over HTTP or HTTPS) and checks the server's response shape, but we recommend turning on LM Studio's optional <strong>bearer token</strong> and entering it in DirectScribe's LM Studio settings for an extra layer. We disclose this rather than pretend the local path has no trade-offs.</p>
     </div>
 
     <div class="btn-row mt-2">

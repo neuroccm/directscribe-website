@@ -1,0 +1,56 @@
+<!--
+title: Get started — the setup checklist
+description: What you need for DirectScribe to work — a DirectScribe subscription, a transcription vendor API key, an intelligence provider (cloud key or fully local via LM Studio), and optional Dropbox template sync to share templates across your Macs.
+nav: getstarted
+-->
+<section class="section section--wash">
+  <div class="container container--narrow">
+    <p class="eyebrow">Setup checklist</p>
+    <h1>What you need for DirectScribe to work</h1>
+    <p class="lead">DirectScribe is bring-your-own-vendor: you supply the transcription and intelligence, and DirectScribe ties them into your dictation workflow. Here is everything to have in place, start to finish. Set the vendor keys up first so your trial days aren't spent during signup.</p>
+    <p class="pill-row"><span class="badge badge--info">3 required steps</span> <span class="badge">1 optional</span> <span class="badge badge--ok">~15 minutes</span></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow prose prose--wide">
+    <ol class="steps">
+      <li>
+        <h3>1 · A DirectScribe subscription <span class="badge badge--info">Required</span></h3>
+        <p>DirectScribe is <strong>CAD $39/month</strong> or <strong>$399/year</strong>, with a <strong>7-day trial</strong>. Onboarding is individual — access is confirmed against your CPSO registration — so start from the <a href="/contact/">contact page</a>. Your licence key arrives <strong>by email</strong>: there is no account to create and no server that can lock you out mid-clinic. See <a href="/pricing/">pricing</a> for the full breakdown.</p>
+      </li>
+      <li>
+        <h3>2 · A transcription vendor key — speech → text <span class="badge badge--info">Required</span></h3>
+        <p>This turns your dictation into text. Pick <strong>one</strong> cloud transcription vendor, create an API key with them, and paste it into <strong>Settings → API Keys</strong> in the app:</p>
+        <ul>
+          <li><strong><a href="/vendors/deepgram/">Deepgram</a></strong> — recommended default (medical model, lowest cost, BAA on request).</li>
+          <li><strong><a href="/vendors/elevenlabs/">ElevenLabs</a></strong> — comparable quality (BAA on enterprise plans only).</li>
+        </ul>
+        <p class="muted">At launch, transcription always uses a cloud vendor you choose — see <a href="/cost/">the cost breakdown</a> (typically ~CAD $4–15/month at solo volume).</p>
+      </li>
+      <li>
+        <h3>3 · An intelligence provider — text → your template <span class="badge badge--info">Required</span></h3>
+        <p>This shapes the raw transcript into your note template. Choose <strong>one</strong>:</p>
+        <ul>
+          <li><strong>A cloud provider</strong> — <a href="/vendors/anthropic/">Anthropic (Claude)</a> or <a href="/vendors/openai/">OpenAI</a>. Create an API key and paste it into <strong>Settings → Providers → Intelligence</strong>.</li>
+          <li><strong>Or run it fully locally</strong> — with <a href="/vendors/lmstudio/">LM Studio</a> on the same Mac, note-shaping happens on-device with no API key, no cloud, and no per-token cost. DirectScribe only allows a loopback address, so the transcript never leaves your Mac.</li>
+        </ul>
+        <p class="muted">Every API key you enter is stored in the macOS Keychain, and you pay each vendor directly — no DirectScribe markup.</p>
+      </li>
+      <li>
+        <h3>4 · Dropbox for templates across your Macs <span class="badge">Optional</span></h3>
+        <p>If you work from more than one Mac — clinic, laptop, home — point DirectScribe's <strong>Template Sync</strong> (Settings → Sync) at a Dropbox folder so your templates follow you. It syncs <strong>your note templates and style guide only</strong>. Your recordings, transcripts, and saved notes are <strong>never</strong> synced — those stay on each Mac and delete on your retention schedule. If you use a single Mac, skip this step.</p>
+      </li>
+    </ol>
+
+    <div class="callout callout--info mt-2">
+      <p class="callout__label">Where each step runs</p>
+      <p class="mb-0">Recording and your files stay on your Mac. Transcription always uses your chosen cloud vendor. Note-shaping uses your chosen vendor — or runs fully on your Mac with LM Studio. Keys, templates, notes, and the transparency log live on your Mac; the only cross-machine copy is the optional Dropbox template sync above.</p>
+    </div>
+
+    <div class="btn-row mt-2">
+      <a class="btn btn--primary" href="/contact/">Start your 7-day trial</a>
+      <a class="btn btn--ghost" href="/pricing/">See pricing</a>
+    </div>
+  </div>
+</section>
