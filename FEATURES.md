@@ -13,9 +13,9 @@ the site — if a feature's wording changes there, it should change here too.
   The template conforms to how you talk; you don't conform to the template.
   *(Home, Guide: templates)*
 - **Two-step pipeline: transcription, then intelligence.** Your chosen STT
-  vendor turns audio into text; your chosen intelligence vendor (or a fully
-  local model via LM Studio) shapes that text into your template. *(Home,
-  Security)*
+  vendor turns audio into text; your chosen intelligence provider — on-device
+  Apple Intelligence, a cloud vendor, or a local LM Studio model — shapes that
+  text into your template. *(Home, Security)*
 - **Review and paste — no EMR integration.** The finished note pastes into
   your EMR as plain text. DirectScribe never integrates with or writes to
   your EMR directly. *(Home, Security)*
@@ -37,11 +37,12 @@ the site — if a feature's wording changes there, it should change here too.
   request, ~CAD $8/mo at ~440 notes), ElevenLabs (BAA on enterprise plans
   only, ~CAD $7–12/mo), and Cohere (high-quality; confirm terms/pricing with
   Cohere). *(Vendor guides, Cost)*
-- **Intelligence vendors:** OpenAI (BAA by email to individuals, ~CAD
-  $2–8/mo), Anthropic (small-customer BAA status unverified — treated as
-  conditional), and LM Studio for fully local note-shaping (no vendor, no
-  API cost, no BAA needed since no third party is involved). *(Vendor
-  guides, Cost)*
+- **Intelligence providers:** Apple Intelligence for on-device note-shaping
+  (built into macOS 26+, no key, no API cost, no BAA needed — the transcript
+  stays on your Mac; Private Cloud Compute fallback planned for macOS 27),
+  OpenAI (BAA by email to individuals, ~CAD $2–8/mo), Anthropic (small-customer
+  BAA status unverified — treated as conditional), and LM Studio for fully
+  local note-shaping via a local model. *(Vendor guides, Cost)*
 - **API keys live in the macOS Keychain** — never in plain files, never sent
   to DirectScribe. There is no DirectScribe account and no DirectScribe
   server. *(Home, Security)*

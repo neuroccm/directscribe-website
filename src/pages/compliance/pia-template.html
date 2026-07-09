@@ -44,7 +44,7 @@ nav: compliance
         <thead><tr><th scope="col">Data element</th><th scope="col">Origin</th><th scope="col">Sent to</th><th scope="col">Retained</th></tr></thead>
         <tbody>
           <tr><td>Physician voice recording</td><td>Your Mac</td><td>Chosen STT vendor (TLS)</td><td>Your window; session-end delete</td></tr>
-          <tr><td>Transcript text</td><td>STT vendor result</td><td>Chosen intelligence vendor (or local LM Studio)</td><td>Your window</td></tr>
+          <tr><td>Transcript text</td><td>STT vendor result</td><td>Chosen intelligence provider (or on-device Apple Intelligence / local LM Studio)</td><td>Your window</td></tr>
           <tr><td>Generated note</td><td>Intelligence vendor</td><td>Stays on your Mac → you paste into the EMR</td><td>Your window</td></tr>
           <tr><td>API keys</td><td>You</td><td>macOS Keychain (local)</td><td>Until you remove them</td></tr>
           <tr><td>Audit log (PHI-free)</td><td>The app</td><td>Local only; never swept</td><td>Retained</td></tr>
@@ -68,6 +68,7 @@ nav: compliance
           <tr><td><a href="/vendors/cohere/">Cohere</a></td><td>Transcription</td><td>Confirm BAA / data-processing terms with Cohere</td></tr>
           <tr><td><a href="/vendors/openai/">OpenAI</a></td><td>Intelligence</td><td>BAA by email to individuals</td></tr>
           <tr><td><a href="/vendors/anthropic/">Anthropic</a></td><td>Intelligence</td><td>Small-customer BAA status being verified — treat as conditional</td></tr>
+          <tr><td><a href="/vendors/apple-intelligence/">Apple Intelligence</a></td><td>Intelligence (on-device)</td><td>No external vendor; no agreement needed (Private Cloud Compute fallback planned)</td></tr>
           <tr><td><a href="/vendors/lmstudio/">LM Studio</a></td><td>Intelligence (local)</td><td>No external vendor; no agreement needed</td></tr>
         </tbody>
       </table>

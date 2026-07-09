@@ -1,6 +1,6 @@
 <!--
 title: Get started — the setup checklist
-description: What you need for DirectScribe to work — a DirectScribe subscription, a transcription vendor API key, an intelligence provider (cloud key or fully local via LM Studio), and optional Dropbox template sync to share templates across your Macs.
+description: What you need for DirectScribe to work — a DirectScribe subscription, a transcription vendor API key, an intelligence provider (on-device Apple Intelligence, a cloud key, or a local LM Studio model), and optional Dropbox template sync to share templates across your Macs.
 nav: getstarted
 -->
 <section class="section section--wash">
@@ -33,8 +33,9 @@ nav: getstarted
         <h3>3 · An intelligence provider — text → your template <span class="badge badge--info">Required</span></h3>
         <p>This shapes the raw transcript into your note template. Choose <strong>one</strong>:</p>
         <ul>
+          <li><strong>On-device with <a href="/vendors/apple-intelligence/">Apple Intelligence</a></strong> — no key, no cost, nothing to install: Apple's built-in model shapes the note on your Mac and the transcript never leaves the device. Requires macOS 26 with Apple Intelligence enabled.</li>
           <li><strong>A cloud provider</strong> — <a href="/vendors/anthropic/">Anthropic (Claude)</a> or <a href="/vendors/openai/">OpenAI</a>. Create an API key and paste it into <strong>Settings → Providers → Intelligence</strong>.</li>
-          <li><strong>Or run it fully locally</strong> — with <a href="/vendors/lmstudio/">LM Studio</a> on the same Mac, note-shaping happens on-device with no API key, no cloud, and no per-token cost. DirectScribe only allows a loopback address, so the transcript never leaves your Mac.</li>
+          <li><strong>Or a local model with <a href="/vendors/lmstudio/">LM Studio</a></strong> — on-device via a loopback server, no API key or per-token cost; the transcript never leaves your Mac.</li>
         </ul>
         <p class="muted">Every API key you enter is stored in the macOS Keychain, and you pay each vendor directly — no DirectScribe markup.</p>
       </li>
@@ -46,7 +47,7 @@ nav: getstarted
 
     <div class="callout callout--info mt-2">
       <p class="callout__label">Where each step runs</p>
-      <p class="mb-0">Recording and your files stay on your Mac. Transcription always uses your chosen cloud vendor. Note-shaping uses your chosen vendor — or runs fully on your Mac with LM Studio. Keys, templates, notes, and the transparency log live on your Mac; the only cross-machine copy is the optional Dropbox template sync above.</p>
+      <p class="mb-0">Recording and your files stay on your Mac. Transcription always uses your chosen cloud vendor. Note-shaping uses your chosen vendor — or runs fully on your Mac with Apple Intelligence or LM Studio. Keys, templates, notes, and the transparency log live on your Mac; the only cross-machine copy is the optional Dropbox template sync above.</p>
     </div>
 
     <div class="btn-row mt-2">

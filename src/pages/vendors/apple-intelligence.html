@@ -1,0 +1,51 @@
+<!--
+title: Set up Apple Intelligence
+description: Shape notes fully on-device with Apple Intelligence — Apple's built-in Foundation Models model. No account, no API key, no per-token cost, and the transcript never leaves your Mac. Requires macOS 26 with Apple Intelligence enabled.
+nav:
+-->
+<section class="section section--wash">
+  <div class="container container--narrow">
+    <p class="eyebrow">Vendor setup · Intelligence · On-device</p>
+    <h1>Set up Apple Intelligence</h1>
+    <p class="lead">Apple Intelligence shapes your transcript into your note using Apple's built-in on-device Foundation Models — no account, no API key, no per-token cost. In its default mode the note is shaped entirely on your Mac and the transcript never leaves the device.</p>
+    <p class="pill-row"><span class="badge badge--info">Intelligence (note-shaping)</span> <span class="badge badge--ok">On-device — no BAA needed</span> <span class="badge">No API cost</span></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow prose prose--wide">
+    <dl class="kv">
+      <dt>Role in DirectScribe</dt><dd>Intelligence — molds the transcript into your note template.</dd>
+      <dt>Where the text goes</dt><dd>In On-device mode, nowhere: Apple's model runs on your Mac, so the transcript never leaves the device.</dd>
+      <dt>Privacy paperwork</dt><dd>None for on-device use — there is no external vendor to sign an agreement with.</dd>
+      <dt>Cost</dt><dd>No API fee. It uses your Mac's built-in model.</dd>
+      <dt>Requirements</dt><dd>A Mac on macOS 26 or later with Apple Intelligence turned on in System Settings, on Apple-Intelligence-capable hardware.</dd>
+    </dl>
+    <div class="callout callout--info">
+      <p class="mb-0">Apple Intelligence covers <strong>note-shaping</strong>, not transcription. At launch, transcription is still a cloud step — pair Apple Intelligence with a transcription vendor such as <a href="/vendors/deepgram/">Deepgram</a>.</p>
+    </div>
+
+    <h2>Turn it on</h2>
+    <ol class="steps">
+      <li><h3>Enable Apple Intelligence</h3><p>In macOS <strong>System Settings → Apple Intelligence &amp; Siri</strong>, turn Apple Intelligence on. The on-device model downloads once; DirectScribe shows its readiness in Settings.</p></li>
+      <li><h3>Choose it in DirectScribe</h3><p>Open <strong>Settings → Providers → Intelligence</strong> and choose <strong>Apple Intelligence</strong>. There is no key to enter.</p></li>
+      <li><h3>Pick a processing mode</h3><p>Choose how notes are processed:</p>
+        <ul>
+          <li><strong>On-device only</strong> (default) — the note is shaped entirely on your Mac; the transcript never leaves the device.</li>
+          <li><strong>Automatic</strong> — on-device first, falling back to Apple's Private Cloud Compute only if the on-device model can't handle a note.</li>
+          <li><strong>Private Cloud Compute</strong> — always use Apple's private servers.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <div class="callout">
+      <p class="callout__label callout__label--neutral">Private Cloud Compute — planned</p>
+      <p class="mb-0">The Automatic and Private Cloud Compute modes rely on Apple's Private Cloud Compute (Apple's privacy-preserving server inference), which requires macOS 27 and is <strong>not enabled in the current build</strong>. Until then, DirectScribe runs Apple Intelligence fully on-device. When Private Cloud Compute is used, DirectScribe shows a clear "Processed with Private Cloud Compute" indicator and records it in the transparency log — so you always know whether a note left your Mac.</p>
+    </div>
+
+    <div class="btn-row mt-2">
+      <a class="btn btn--primary" href="/contact/">Contact us</a>
+      <a class="btn btn--ghost" href="/security/">How on-device paths are handled</a>
+    </div>
+  </div>
+</section>
