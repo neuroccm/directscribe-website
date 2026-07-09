@@ -1,0 +1,44 @@
+<!--
+title: Set up Cohere
+description: Step-by-step guide to creating a Cohere API key for DirectScribe transcription — a high-quality speech-to-text option. Confirm BAA and pricing terms directly with Cohere.
+nav:
+-->
+<section class="section section--wash">
+  <div class="container container--narrow">
+    <p class="eyebrow">Vendor setup · Transcription</p>
+    <h1>Set up Cohere</h1>
+    <p class="lead">Cohere turns the physician's audio into text through its speech-to-text API — a high-quality transcription option for DirectScribe. Pick it in Settings and paste your Cohere key.</p>
+    <p class="pill-row"><span class="badge badge--info">Transcription (STT)</span> <span class="badge">Confirm terms with Cohere</span></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow prose prose--wide">
+    <dl class="kv">
+      <dt>Role in DirectScribe</dt><dd>Transcription — converts your dictation to text.</dd>
+      <dt>Where your audio goes</dt><dd>To Cohere over an encrypted (TLS) connection, and nowhere else.</dd>
+      <dt>Privacy paperwork</dt><dd>Confirm whether Cohere will provide a Business Associate Agreement or equivalent data-processing terms for your use — check directly with Cohere.</dd>
+      <dt>Typical cost</dt><dd>Billed by Cohere per their current API pricing — confirm on Cohere's pricing page; see the <a href="/cost/">cost breakdown</a> for context.</dd>
+    </dl>
+
+    <h2>Create your API key</h2>
+    <ol class="steps">
+      <li><h3>Create a Cohere account</h3><p>Go to <a href="https://dashboard.cohere.com/">dashboard.cohere.com</a> and sign up.</p></li>
+      <li><h3>Open the API Keys page</h3><p>In the Cohere dashboard, open <strong>API Keys</strong> from the sidebar.</p></li>
+      <li><h3>Create a key</h3><p>Create a new API key (a production key for ongoing clinical use). Copy the key value and keep it somewhere safe.</p></li>
+      <li><h3>Paste it into DirectScribe</h3><p>In DirectScribe, open <strong>Settings → Providers → Transcription</strong>, choose <strong>Cohere</strong>, and paste the key. It is saved to your macOS Keychain.</p></li>
+    </ol>
+
+    <h2>Privacy paperwork</h2>
+    <div class="callout">
+      <p class="callout__label callout__label--neutral">Confirm terms with Cohere</p>
+      <p class="mb-0">Before sending any patient-derived audio, confirm directly with Cohere what data-processing or Business Associate terms are available for your account, and whether they meet your practice's privacy assessment. Terms and pricing change — check the current details with Cohere.</p>
+    </div>
+    <p class="fineprint">Not legal advice — see the <a href="/compliance/">Compliance Centre</a>. You decide, with your privacy advisor, whether a vendor's terms meet your obligations under PIPEDA and your provincial health-privacy law.</p>
+
+    <div class="btn-row mt-2">
+      <a class="btn btn--primary" href="/contact/">Contact us</a>
+      <a class="btn btn--ghost" href="/vendors/anthropic/">Set up an intelligence vendor</a>
+    </div>
+  </div>
+</section>

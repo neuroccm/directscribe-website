@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Set up LM Studio · DirectScribe</title>
-<meta name="description" content="Run note-shaping fully locally with LM Studio — no vendor account, no API key required, and no BAA needed because no third party is involved. The only fully-local intelligence path in DirectScribe.">
-<link rel="canonical" href="https://directscribe.ca/vendors/lmstudio/">
+<title>Set up Cohere · DirectScribe</title>
+<meta name="description" content="Step-by-step guide to creating a Cohere API key for DirectScribe transcription — a high-quality speech-to-text option. Confirm BAA and pricing terms directly with Cohere.">
+<link rel="canonical" href="https://directscribe.ca/vendors/cohere/">
 <meta name="theme-color" content="#0a2540">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/styles.css?v=4637494ba7">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DirectScribe">
-<meta property="og:title" content="Set up LM Studio · DirectScribe">
-<meta property="og:description" content="Run note-shaping fully locally with LM Studio — no vendor account, no API key required, and no BAA needed because no third party is involved. The only fully-local intelligence path in DirectScribe.">
-<meta property="og:url" content="https://directscribe.ca/vendors/lmstudio/">
+<meta property="og:title" content="Set up Cohere · DirectScribe">
+<meta property="og:description" content="Step-by-step guide to creating a Cohere API key for DirectScribe transcription — a high-quality speech-to-text option. Confirm BAA and pricing terms directly with Cohere.">
+<meta property="og:url" content="https://directscribe.ca/vendors/cohere/">
 <meta name="twitter:card" content="summary">
 </head>
 <body>
@@ -49,44 +49,40 @@
 <main id="main">
 <section class="section section--wash">
   <div class="container container--narrow">
-    <p class="eyebrow">Vendor setup · Intelligence · Local</p>
-    <h1>Set up LM Studio</h1>
-    <p class="lead">LM Studio runs a language model on your own Mac and shapes your transcript into your template without sending it to any vendor. It is the only fully local note-shaping path in DirectScribe.</p>
-    <p class="pill-row"><span class="badge badge--info">Intelligence (note-shaping)</span> <span class="badge badge--ok">Fully local — no BAA needed</span> <span class="badge">No API cost</span></p>
+    <p class="eyebrow">Vendor setup · Transcription</p>
+    <h1>Set up Cohere</h1>
+    <p class="lead">Cohere turns the physician's audio into text through its speech-to-text API — a high-quality transcription option for DirectScribe. Pick it in Settings and paste your Cohere key.</p>
+    <p class="pill-row"><span class="badge badge--info">Transcription (STT)</span> <span class="badge">Confirm terms with Cohere</span></p>
   </div>
 </section>
 
 <section class="section">
   <div class="container container--narrow prose prose--wide">
     <dl class="kv">
-      <dt>Role in DirectScribe</dt><dd>Intelligence — molds the transcript into your note template.</dd>
-      <dt>Where the text goes</dt><dd>Only to a loopback server on this same Mac. DirectScribe accepts only a loopback base URL (<code>127.0.0.1</code> / <code>localhost</code>) and rejects any remote host — even over HTTPS — so the transcript never leaves this device.</dd>
-      <dt>Privacy paperwork</dt><dd>None — there is no external vendor to sign an agreement with.</dd>
-      <dt>Cost</dt><dd>No API fee. You provide the hardware and electricity.</dd>
+      <dt>Role in DirectScribe</dt><dd>Transcription — converts your dictation to text.</dd>
+      <dt>Where your audio goes</dt><dd>To Cohere over an encrypted (TLS) connection, and nowhere else.</dd>
+      <dt>Privacy paperwork</dt><dd>Confirm whether Cohere will provide a Business Associate Agreement or equivalent data-processing terms for your use — check directly with Cohere.</dd>
+      <dt>Typical cost</dt><dd>Billed by Cohere per their current API pricing — confirm on Cohere's pricing page; see the <a href="/cost/">cost breakdown</a> for context.</dd>
     </dl>
-    <div class="callout callout--info">
-      <p class="mb-0">Remember what LM Studio does and does not cover: it makes <strong>note-shaping</strong> local. At launch, <strong>transcription is still a cloud step</strong> — you pair LM Studio with a cloud transcription vendor such as <a href="/vendors/deepgram/">Deepgram</a>.</p>
-    </div>
 
-    <h2>Get it running</h2>
+    <h2>Create your API key</h2>
     <ol class="steps">
-      <li><h3>Install LM Studio</h3><p>Download LM Studio for macOS from <a href="https://lmstudio.ai/">lmstudio.ai</a> and install it.</p></li>
-      <li><h3>Download a model</h3><p>In LM Studio, search for and download an instruction-tuned model that fits your Mac's memory (a Gemma- or Llama-class instruct model is a good start).</p>
-      </li>
-      <li><h3>Start the local server</h3><p>Open LM Studio's <strong>Developer / Local Server</strong> tab, load your model, and start the server. It listens on <code>http://localhost:1234/v1</code> by default.</p></li>
-      <li><h3>Point DirectScribe at it</h3><p>Open <strong>Settings → Providers → Intelligence</strong>, choose <strong>LM Studio</strong>, and set the base URL to <code>http://localhost:1234/v1</code>. You choose and load the model inside LM Studio — DirectScribe simply uses whatever your local server is serving, so you can leave its model field blank. The base URL must stay on <code>localhost</code>; DirectScribe rejects any non-loopback address.</p>
-      </li>
+      <li><h3>Create a Cohere account</h3><p>Go to <a href="https://dashboard.cohere.com/">dashboard.cohere.com</a> and sign up.</p></li>
+      <li><h3>Open the API Keys page</h3><p>In the Cohere dashboard, open <strong>API Keys</strong> from the sidebar.</p></li>
+      <li><h3>Create a key</h3><p>Create a new API key (a production key for ongoing clinical use). Copy the key value and keep it somewhere safe.</p></li>
+      <li><h3>Paste it into DirectScribe</h3><p>In DirectScribe, open <strong>Settings → Providers → Transcription</strong>, choose <strong>Cohere</strong>, and paste the key. It is saved to your macOS Keychain.</p></li>
     </ol>
 
-    <h2>A local-path trade-off, disclosed</h2>
-    <div class="callout callout--legal">
-      <p class="callout__label">Enable the bearer token</p>
-      <p class="mb-0">On macOS, a local server on <code>localhost</code> is not authenticated between processes — in principle another program on your Mac could bind the same port. DirectScribe accepts only a loopback base URL (rejecting every remote host, over HTTP or HTTPS) and checks the server's response shape, but we recommend turning on LM Studio's optional <strong>bearer token</strong> and entering it in DirectScribe's LM Studio settings for an extra layer. We disclose this rather than pretend the local path has no trade-offs.</p>
+    <h2>Privacy paperwork</h2>
+    <div class="callout">
+      <p class="callout__label callout__label--neutral">Confirm terms with Cohere</p>
+      <p class="mb-0">Before sending any patient-derived audio, confirm directly with Cohere what data-processing or Business Associate terms are available for your account, and whether they meet your practice's privacy assessment. Terms and pricing change — check the current details with Cohere.</p>
     </div>
+    <p class="fineprint">Not legal advice — see the <a href="/compliance/">Compliance Centre</a>. You decide, with your privacy advisor, whether a vendor's terms meet your obligations under PIPEDA and your provincial health-privacy law.</p>
 
     <div class="btn-row mt-2">
       <a class="btn btn--primary" href="/contact/">Contact us</a>
-      <a class="btn btn--ghost" href="/security/">How local paths are handled</a>
+      <a class="btn btn--ghost" href="/vendors/anthropic/">Set up an intelligence vendor</a>
     </div>
   </div>
 </section>

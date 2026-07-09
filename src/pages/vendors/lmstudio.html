@@ -30,7 +30,7 @@ nav:
       <li><h3>Download a model</h3><p>In LM Studio, search for and download an instruction-tuned model that fits your Mac's memory (a Gemma- or Llama-class instruct model is a good start).</p>
       </li>
       <li><h3>Start the local server</h3><p>Open LM Studio's <strong>Developer / Local Server</strong> tab, load your model, and start the server. It listens on <code>http://localhost:1234/v1</code> by default.</p></li>
-      <li><h3>Point DirectScribe at it</h3><p>Open <strong>Settings → Providers → Intelligence</strong>, choose <strong>LM Studio</strong>, and set the base URL to <code>http://localhost:1234/v1</code>. Leave the model field blank to use whatever model the server has loaded, or type a specific model identifier. The base URL must stay on <code>localhost</code> — DirectScribe rejects any non-loopback address.</p>
+      <li><h3>Point DirectScribe at it</h3><p>Open <strong>Settings → Providers → Intelligence</strong>, choose <strong>LM Studio</strong>, and set the base URL to <code>http://localhost:1234/v1</code>. You choose and load the model inside LM Studio — DirectScribe simply uses whatever your local server is serving, so you can leave its model field blank. The base URL must stay on <code>localhost</code>; DirectScribe rejects any non-loopback address.</p>
       </li>
     </ol>
 

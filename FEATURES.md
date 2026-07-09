@@ -34,8 +34,9 @@ the site — if a feature's wording changes there, it should change here too.
 - **No vendor lock-in.** Switch STT or intelligence providers in Settings at
   any time; no data migration, no reinstall. *(Home, Compliance, Support)*
 - **Launch transcription vendors:** Deepgram (recommended default, BAA on
-  request, ~CAD $8/mo at ~440 notes) and ElevenLabs (BAA on enterprise plans
-  only, ~CAD $7–12/mo). *(Vendor guides, Cost)*
+  request, ~CAD $8/mo at ~440 notes), ElevenLabs (BAA on enterprise plans
+  only, ~CAD $7–12/mo), and Cohere (high-quality; confirm terms/pricing with
+  Cohere). *(Vendor guides, Cost)*
 - **Intelligence vendors:** OpenAI (BAA by email to individuals, ~CAD
   $2–8/mo), Anthropic (small-customer BAA status unverified — treated as
   conditional), and LM Studio for fully local note-shaping (no vendor, no
