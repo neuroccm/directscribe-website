@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Security · DirectScribe</title>
-<meta name="description" content="How DirectScribe is built so that patient data has nowhere unexpected to go — no servers, keys in the Keychain, scheduled deletion, a tamper-evident audit log, and one disclosed network call. Canada-first (PIPEDA + PHIPA).">
+<meta name="description" content="How DirectScribe is built so that patient data has nowhere unexpected to go — no servers, keys in the Keychain, scheduled deletion, a tamper-evident transparency log, and one disclosed network call. Canada-first (PIPEDA + PHIPA).">
 <link rel="canonical" href="https://directscribe.ca/security/">
 <meta name="theme-color" content="#0a2540">
 <meta name="color-scheme" content="light">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DirectScribe">
 <meta property="og:title" content="Security · DirectScribe">
-<meta property="og:description" content="How DirectScribe is built so that patient data has nowhere unexpected to go — no servers, keys in the Keychain, scheduled deletion, a tamper-evident audit log, and one disclosed network call. Canada-first (PIPEDA + PHIPA).">
+<meta property="og:description" content="How DirectScribe is built so that patient data has nowhere unexpected to go — no servers, keys in the Keychain, scheduled deletion, a tamper-evident transparency log, and one disclosed network call. Canada-first (PIPEDA + PHIPA).">
 <meta property="og:url" content="https://directscribe.ca/security/">
 <meta name="twitter:card" content="summary">
 </head>
@@ -63,7 +63,7 @@
         <li><a href="#choices">Seven design choices</a></li>
         <li><a href="#locality">What runs where</a></li>
         <li><a href="#deletion">Deletion, stated honestly</a></li>
-        <li><a href="#audit">The audit log — and what it is not</a></li>
+        <li><a href="#transparency-log">The transparency log — and what it is not</a></li>
         <li><a href="#network">The one network call</a></li>
         <li><a href="#licensing">Licensing, not DRM</a></li>
         <li><a href="#limits">Limits we disclose</a></li>
@@ -77,12 +77,12 @@
       <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>API keys live in the macOS Keychain.</strong> Your vendor keys are stored by the system Keychain, protected by your login and FileVault — never written to plain configuration files and never sent to us.</span></li>
       <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>The app is sandboxed.</strong> DirectScribe runs in the macOS App Sandbox with least-privilege access, so it can reach only what it needs to do its job.</span></li>
       <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>Deletion runs on your schedule.</strong> A session-end action plus 7/30/90-day sweeps remove recordings, transcripts, and notes without you having to remember.</span></li>
-      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>The audit log is tamper-evident.</strong> Every transmission and deletion is hash-chained and sequence-checkpointed, and it is PHI-free by design.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>The transparency log is tamper-evident.</strong> Every transmission and deletion is hash-chained and sequence-checkpointed, and it is PHI-free by design.</span></li>
       <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>Licensing is offline.</strong> A license key is validated on your Mac. No account is created, and no server is contacted to let you work.</span></li>
     </ul>
 
     <h2 id="locality">What runs where</h2>
-    <p>"Local-first" is easy to overstate, so here is the precise version. Your recordings, templates, API keys, saved notes, and the audit log live on your Mac. Two steps use the internet, and only to the vendors you pick:</p>
+    <p>"Local-first" is easy to overstate, so here is the precise version. Your recordings, templates, API keys, saved notes, and the transparency log live on your Mac. Two steps use the internet, and only to the vendors you pick:</p>
     <div class="table-wrap">
       <table class="table">
         <caption>The path of a note, at launch</caption>
@@ -102,9 +102,9 @@
     <h2 id="deletion">Deletion, stated honestly</h2>
     <p>When DirectScribe deletes an artifact, it is <strong>deleted from the file system on your schedule; FileVault protects residual storage; backups you configure may retain copies</strong>. We will not tell you it is gone from every disk, because that would not be true — and you deserve the accurate version.</p>
     <p>Why the care? macOS uses the APFS file system, which is copy-on-write on modern SSDs. There is no per-file secure-erase, so deleting a file frees its blocks but can leave residue until those blocks are reused. The compensating control is <strong>FileVault</strong>: any residue stays as encrypted ciphertext. DirectScribe also marks its data directories to be excluded from Time Machine, but APFS local snapshots and any backup you run yourself can still hold copies the app cannot reach.</p>
-    <p>So the audit log proves the deletion <em>action</em> — not the absence of every copy. Keeping FileVault on and being deliberate about backups (see the <a href="/compliance/consent/">clinic checklist</a>) is what closes the gap.</p>
+    <p>So the transparency log proves the deletion <em>action</em> — not the absence of every copy. Keeping FileVault on and being deliberate about backups (see the <a href="/compliance/consent/">clinic checklist</a>) is what closes the gap.</p>
 
-    <h2 id="audit">The audit log — and what it is not</h2>
+    <h2 id="transparency-log">The transparency log — and what it is not</h2>
     <p>DirectScribe keeps an append-only, PHI-free log. Each entry records that a transmission or a deletion happened — the vendor, the timestamp, the artifact type, and an opaque identifier. It never records note content, filenames, template names, or file paths. The chain is verified in the app, and a sequence checkpoint in the Keychain catches casual truncation.</p>
     <div class="callout">
       <p class="callout__label callout__label--neutral">What this log is</p>
@@ -155,7 +155,7 @@
           </svg>
           <span>DirectScribe</span>
         </a>
-        <p class="footer-about">A Mac-native, bring-your-own-API-key dictation app for solo outpatient primary-care physicians in Canada. Built by a physician.</p>
+        <p class="footer-about">A Mac-native, bring-your-own-API-key dictation app for physicians in private practice across Canada. Built by a physician.</p>
       </div>
       <div>
         <h4>Product</h4>

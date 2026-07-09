@@ -8,6 +8,7 @@ nav: compliance
     <p class="eyebrow">Compliance Centre</p>
     <h1>Do your own assessment, with a running start</h1>
     <p class="lead">Practical, Canada-first resources to help you and your privacy advisor assess DirectScribe under <strong>PIPEDA</strong> and your province's health-privacy law (in Ontario, <strong>PHIPA</strong>). We do not market against US HIPAA.</p>
+    <p>DirectScribe is built for physicians in private practice — running their own clinic and their own EMR. It is not designed or licensed for hospital or hospital-based-clinic deployment; institutional use involves governance, security, and integration requirements this product does not address.</p>
     <div class="callout callout--legal">
       <p class="callout__label">Not legal advice</p>
       <p class="mb-0">Everything in the Compliance Centre is general information to support your own privacy assessment. It is not legal advice, is not a substitute for your professional college's guidance or a privacy lawyer, and does not create any professional relationship. You remain the health-information custodian responsible for your patients' data.</p>
@@ -29,7 +30,7 @@ nav: compliance
       </a>
       <a class="card" href="/security/">
         <h3>Security design <span aria-hidden="true">→</span></h3>
-        <p>How the app handles data, deletion honesty, the audit log's real scope, and the one network call it makes.</p>
+        <p>How the app handles data, deletion honesty, the transparency log's real scope, and the one network call it makes.</p>
       </a>
       <a class="card" href="/guides/templates/">
         <h3>Template guide <span aria-hidden="true">→</span></h3>
@@ -51,14 +52,14 @@ nav: compliance
           <tr><th scope="row">Is the patient recorded?</th><td>No. Only the physician's voice is recorded for dictation; it is not an ambient scribe.</td></tr>
           <tr><th scope="row">Where are credentials stored?</th><td>API keys are held in the macOS Keychain, protected by your login and FileVault.</td></tr>
           <tr><th scope="row">How long is data kept?</th><td>On your retention window (7/30/90 days) plus a session-end delete. Deletion is logged.</td></tr>
-          <tr><th scope="row">Can you evidence data flows?</th><td>Yes — a PHI-free, tamper-evident audit log records every transmission and deletion.</td></tr>
+          <tr><th scope="row">Can you evidence data flows?</th><td>Yes — a PHI-free, tamper-evident transparency log records every transmission and deletion.</td></tr>
           <tr><th scope="row">Is there vendor lock-in?</th><td>No. Bring your own keys; switch vendors; run note-shaping locally with LM Studio.</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h2>About the audit log, so no one over-claims</h2>
-    <p>DirectScribe's audit log is a <strong>transmission-and-deletion transparency record</strong>. It is explicitly <strong>not a PHIPA s.10.1 access-audit log</strong>: that section is enacted but not yet in force, and it concerns logging who <em>views</em> a patient's record. The app logs sends and deletes, not PHI access — and your <strong>EMR remains the system of record</strong> for the clinical note and its access history. The log helps you evidence where data went and when it was removed; it does not, by itself, satisfy any regulatory audit obligation.</p>
+    <h2>About the transparency log, so no one over-claims</h2>
+    <p>DirectScribe's transparency log is a <strong>transmission-and-deletion transparency record</strong>. It is explicitly <strong>not a PHIPA s.10.1 access-audit log</strong>: that section is enacted but not yet in force, and it concerns logging who <em>views</em> a patient's record. The app logs sends and deletes, not PHI access — and your <strong>EMR remains the system of record</strong> for the clinical note and its access history. The log helps you evidence where data went and when it was removed; it does not, by itself, satisfy any regulatory audit obligation.</p>
 
     <div class="btn-row mt-2">
       <a class="btn btn--primary" href="/compliance/pia-template/">Open the PIA template</a>

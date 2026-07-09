@@ -1,6 +1,6 @@
 <!--
 title: Your dictation. Your vendors. Your Mac.
-description: DirectScribe is a Mac-native, bring-your-own-API-key medical dictation app for solo outpatient primary-care physicians in Canada. Dictate to your own templates, paste into your EMR, and delete on your schedule.
+description: DirectScribe is a Mac-native, bring-your-own-API-key medical dictation app for physicians in private practice across Canada. Dictate to your own templates, paste into your EMR, and delete on your schedule.
 nav: product
 -->
 <section class="section section--wash hero">
@@ -9,12 +9,12 @@ nav: product
       <div class="hero__col">
         <p class="eyebrow reveal-1">Mac-native medical dictation</p>
         <h1 class="reveal-1">Your dictation. Your vendors. Your Mac.</h1>
-        <p class="lead reveal-2">DirectScribe turns your spoken notes into your own templates, ready to paste into your EMR — using the transcription and intelligence vendors you choose, with the keys and the files kept on your Mac.</p>
+        <p class="lead reveal-2">DirectScribe turns your spoken notes into your own templates — the template molds to how you dictate, not the other way around — ready to paste into your EMR, using the transcription and intelligence vendors you choose, with the keys and the files kept on your Mac.</p>
         <div class="btn-row reveal-3">
           <a class="btn btn--primary" href="/contact/">Start your 7-day trial</a>
           <a class="btn btn--ghost" href="/security/">See the security design</a>
         </div>
-        <p class="hero__note reveal-3">For solo outpatient primary-care physicians in Canada. Only the physician's voice is ever recorded — never the patient.</p>
+        <p class="hero__note reveal-3">For doctors in private practice across Canada — running their own clinic and EMR, not hospitals or hospital-based clinics. Only the physician's voice is ever recorded — never the patient.</p>
       </div>
       <div class="hero__visual reveal-2">
         <figure class="mockup-wrap">
@@ -65,12 +65,12 @@ nav: product
       <div class="feature">
         <svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/></svg>
         <h3>Dictate to your template</h3>
-        <p>Speak the encounter; DirectScribe molds it into your SOAP note, periodic health exam, or referral letter — then you review and paste it into your EMR.</p>
+        <p>Speak the encounter in your own words — DirectScribe molds your free-form dictation into your SOAP note, periodic health exam, or referral letter, not the other way around. Then you review and paste it into your EMR.</p>
       </div>
       <div class="feature">
         <svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 7l6 6"/><path d="M3 21l3-1 11-11-2-2L4 18l-1 3Z"/><circle cx="18" cy="8" r="3"/></svg>
         <h3>Bring your own vendors</h3>
-        <p>Choose your transcription and intelligence vendors and pay them directly. Your API keys live in the macOS Keychain — there is no DirectScribe account and no DirectScribe server.</p>
+        <p>Choose your transcription and intelligence vendors and pay them directly — no per-seat markup like bundled AI scribes charge. Your API keys live in the macOS Keychain — there is no DirectScribe account and no DirectScribe server.</p>
       </div>
       <div class="feature">
         <svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
@@ -79,13 +79,13 @@ nav: product
       </div>
       <div class="feature">
         <svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
-        <h3>A transparent audit log</h3>
+        <h3>A transparency log</h3>
         <p>Every send to a vendor and every deletion is written to a tamper-evident, PHI-free log you can show a privacy reviewer.</p>
       </div>
       <div class="feature">
         <svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></svg>
         <h3>Built by a physician</h3>
-        <p>Designed by a practising physician for the realities of a solo outpatient clinic — not by a hospital IT department for one.</p>
+        <p>Designed by a practising physician for the realities of a solo private-practice clinic — not by a hospital IT department for one.</p>
       </div>
       <div class="feature">
         <svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
@@ -102,7 +102,7 @@ nav: product
       <div>
         <p class="eyebrow">Precise about locality</p>
         <h2 id="runs">What runs where</h2>
-        <p>We describe "local-first" precisely. Your files, templates, keys, and audit log live on your Mac. But at launch, turning speech into text always uses a cloud transcription vendor you choose — so we say so plainly instead of implying that your audio is processed only on your Mac.</p>
+        <p>We describe "local-first" precisely. Your files, templates, keys, and transparency log live on your Mac. But at launch, turning speech into text always uses a cloud transcription vendor you choose — so we say so plainly instead of implying that your audio is processed only on your Mac.</p>
         <p class="muted">The one step that can run entirely on your Mac today is note-shaping, if you run a local model with LM Studio.</p>
       </div>
       <div>
@@ -114,10 +114,30 @@ nav: product
               <tr><th scope="row">Recording your voice</th><td>On your Mac</td></tr>
               <tr><th scope="row">Transcription (speech → text)</th><td>Your chosen cloud vendor</td></tr>
               <tr><th scope="row">Note-shaping (text → your template)</th><td>Your chosen vendor — or fully local with LM Studio</td></tr>
-              <tr><th scope="row">Templates, keys, notes, audit log</th><td>On your Mac</td></tr>
+              <tr><th scope="row">Templates, keys, notes, transparency log</th><td>On your Mac</td></tr>
             </tbody>
           </table>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="future">
+  <div class="container">
+    <div class="sec-head center">
+      <p class="eyebrow">Built to outlast your EMR</p>
+      <h2 id="future">Speech-to-text and AI move faster than EMRs ever will</h2>
+      <p class="lead measure">EMRs are data repositories for clinical care — not places where cutting-edge transcription or language models show up first. DirectScribe stays deliberately separate from your EMR: dictate, review, paste. That gap is the point.</p>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>Your vendors evolve. DirectScribe doesn't lock you to any of them.</h3>
+        <p class="muted">When a better or cheaper transcription or intelligence vendor arrives, you switch providers in Settings — no waiting on your EMR vendor to catch up, no migration.</p>
+      </div>
+      <div>
+        <h3>Your EMR stays the system of record — not a bottleneck.</h3>
+        <p class="muted">The finished note pastes in as plain text. Your EMR keeps doing what it's good at: being the durable record of clinical care, while DirectScribe stays free to move as fast as the AI landscape does.</p>
       </div>
     </div>
   </div>
