@@ -354,6 +354,7 @@ code.inline { font-family: var(--font-mono); font-size: 0.9em; background: var(-
 .field input:focus-visible { outline: 3px solid var(--brand); outline-offset: 1px; }
 .field__hint { font-size: 0.82rem; color: var(--muted); margin: 0; }
 .form .btn { margin-top: 0.35rem; }
+.field--hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
 /* ----- Anchored section titles ----- */
 .sec-head { max-width: 46rem; margin-bottom: 2rem; }

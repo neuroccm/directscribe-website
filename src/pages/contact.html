@@ -18,33 +18,35 @@ nav:
       <p class="mb-0">DirectScribe is built for physicians across Canada. We're starting this trial in Ontario first, so we ask for your College of Physicians and Surgeons of Ontario (CPSO) registration number to verify you're a real, currently registered physician before we set up access — it's how we confirm genuine interest and eligibility during this early, hands-on rollout.</p>
     </div>
 
-    <form class="form" action="mailto:directscribe@ccmd.io?subject=DirectScribe%207-day%20trial%20referral" method="post" enctype="text/plain">
+    <form class="form" action="https://directscribe-contact.khosravanih.workers.dev/" method="post">
       <div class="field">
         <label for="name">Full name</label>
-        <input type="text" id="name" name="Name" autocomplete="name" required>
+        <input type="text" id="name" name="name" autocomplete="name" required>
       </div>
       <div class="field">
         <label for="cpso">CPSO number</label>
-        <input type="text" id="cpso" name="CPSO number" inputmode="numeric" required>
+        <input type="text" id="cpso" name="cpso" inputmode="numeric" required>
         <p class="field__hint">Your College of Physicians and Surgeons of Ontario registration number.</p>
       </div>
       <div class="field">
         <label for="email">Email</label>
-        <input type="email" id="email" name="Email" autocomplete="email" required>
+        <input type="email" id="email" name="email" autocomplete="email" required>
       </div>
       <div class="field">
         <label for="phone">Telephone</label>
-        <input type="tel" id="phone" name="Telephone" autocomplete="tel" required>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+      </div>
+      <div class="field field--hp" aria-hidden="true">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
       </div>
       <button class="btn btn--primary" type="submit">Send to DirectScribe</button>
     </form>
 
     <div class="callout callout--info">
       <p class="callout__label">Where this goes</p>
-      <p class="mb-0">This form opens an email addressed to <a href="mailto:directscribe@ccmd.io">directscribe@ccmd.io</a> from your own mail app — the same "no DirectScribe servers" principle as the app itself. Nothing you type here is stored on a DirectScribe server; it goes straight from your device to us.</p>
+      <p class="mb-0">This form submits securely over HTTPS straight to our inbox — nothing you type here is stored on a server in between; it's relayed and nowhere else.</p>
     </div>
-
-    <p class="muted">If your email app doesn't open automatically, write to us directly at <a href="mailto:directscribe@ccmd.io?subject=DirectScribe%207-day%20trial%20referral&body=Name%3A%0ACPSO%20number%3A%0AEmail%3A%0ATelephone%3A">directscribe@ccmd.io</a> with your name, CPSO number, email, and telephone number.</p>
 
     <div class="btn-row mt-2">
       <a class="btn btn--ghost" href="/pricing/">See pricing</a>
