@@ -66,7 +66,7 @@
         <li><a href="#deletion">Deletion, stated honestly</a></li>
         <li><a href="#transparency-log">The transparency log — and what it is not</a></li>
         <li><a href="#network">The one network call</a></li>
-        <li><a href="#licensing">Licensing, not DRM</a></li>
+        <li><a href="#licensing">Subscription, not DRM</a></li>
         <li><a href="#limits">Limits we disclose</a></li>
       </ul>
     </div>
@@ -79,7 +79,7 @@
       <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>The app is sandboxed.</strong> DirectScribe runs in the macOS App Sandbox with least-privilege access, so it can reach only what it needs to do its job.</span></li>
       <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>Deletion runs on your schedule.</strong> A session-end action plus 7/30/90-day sweeps remove recordings, transcripts, and notes without you having to remember.</span></li>
       <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>The transparency log is tamper-evident.</strong> Every transmission and deletion is hash-chained and sequence-checkpointed, and it is PHI-free by design.</span></li>
-      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>Licensing is offline.</strong> A license key is validated on your Mac. No account is created, and no server is contacted to let you work.</span></li>
+      <li><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span><strong>Subscribed through the App Store.</strong> DirectScribe is sold as a Mac App Store subscription; Apple handles billing. Entitlement is verified on your Mac, and no DirectScribe account is ever created.</span></li>
     </ul>
 
     <h2 id="locality">What runs where</h2>
@@ -121,8 +121,8 @@
     <p>So that "no telemetry" is a claim you can verify with a network monitor rather than a promise you have to trust, here it is in full. Once a week, DirectScribe performs an <strong>update check</strong>: an HTTPS request to <code>directscribe.ca/version.json</code> to see whether a newer version exists. It compares version numbers and, if there is one, links to this site. It does not download anything automatically, does not follow any URL supplied by that file, and does not render any text from it.</p>
     <p>That is the <strong>only</strong> request the app initiates by itself. There is <strong>no telemetry</strong>, no analytics, no crash reporting, no usage tracking, no phone-home. The update check has an off switch in Settings. Every other network request is one you triggered — a transcription or a note-shaping call — to a vendor you chose.</p>
 
-    <h2 id="licensing">Licensing is honesty enforcement, not DRM</h2>
-    <p>The license check is deliberately simple. It verifies a cryptographic signature offline and unlocks dictation; viewing, search, export, and deletion always work, even unlicensed or expired. We do not obfuscate the binary, add anti-debugging, or scatter secret checks — those are wrong for physicians and would not stop a determined bypass anyway. The real integrity control on the app itself is Apple notarization.</p>
+    <h2 id="licensing">Subscription, not DRM</h2>
+    <p>DirectScribe is distributed on the Mac App Store, and Apple's StoreKit — verified on your Mac — is what unlocks dictation. Viewing, search, export, and deletion always work, even without an active subscription. We do not obfuscate the binary, add anti-debugging, or scatter secret checks — those are wrong for physicians and would not stop a determined bypass anyway. The Mac App Store's own code-signing and notarization are the integrity control on the app itself.</p>
 
     <h2 id="limits">Limits we disclose</h2>
     <ul>
