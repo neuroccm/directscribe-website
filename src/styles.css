@@ -135,6 +135,7 @@ main { display: block; }
 .section--navy { background: var(--navy); color: #fff; }
 .section--navy h1, .section--navy h2, .section--navy h3 { color: #fff; }
 .section--navy .lead { color: var(--footer-muted); }
+.section--navy .eyebrow { color: var(--footer-link); }
 .section--tight { padding-block: clamp(2rem, 1.5rem + 3vw, 3.25rem); }
 .stack > * + * { margin-top: 1rem; }
 .center { text-align: center; }
@@ -423,6 +424,7 @@ code.inline { font-family: var(--font-mono); font-size: 0.9em; background: var(-
 .footer-about { color: var(--footer-muted); font-size: 0.92rem; max-width: 26rem; margin: 0.75rem 0 0; }
 .footer-legal { border-top: 1px solid rgba(255,255,255,0.14); margin-top: 2.5rem; padding-top: 1.5rem; font-size: 0.84rem; color: var(--footer-muted); display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }
 .footer-legal p { margin: 0; max-width: 60ch; }
+.site-footer strong { color: #fff; } /* global strong is navy — invisible on the navy footer */
 .footer-legal .footer-credit { flex-basis: 100%; max-width: none; }
 .footer-legal .footer-credit a { font-size: inherit; }
 

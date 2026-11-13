@@ -108,18 +108,18 @@ the site — if a feature's wording changes there, it should change here too.
 
 ## Licensing
 
-- **Offline license validation** — a cryptographically signed license key
-  checked on your Mac. No account, no sign-in, no server that can lock you
-  out mid-clinic. *(Home, Security, Pricing)*
-- **Licensing is honesty enforcement, not DRM.** No binary obfuscation,
-  anti-debugging, or scattered secret checks. Apple notarization is the real
-  integrity control. *(Security)*
-- **Every license state stays functional for viewing.** Viewing, search,
-  export, and deletion always work — even unlicensed or expired. Only
-  recording, transcription, and note generation are license-gated.
+- **Direct distribution.** On payment, the app
+  is sent to the client by email as a DMG file. No DirectScribe account.
+  *(Home, Security, Pricing, Get started)*
+- **Subscription = updates and support.** Monthly: updates and support for
+  as long as the subscription is active. Annual: a full year of support and
+  every update released in that year. Once a subscription ends, updates
+  stop. *(Pricing, Security)*
+- **Not DRM.** No binary obfuscation, anti-debugging, or scattered secret
+  checks. *(Security)*
+- **Saved notes stay usable in every subscription state.** Viewing, search,
+  export, and deletion always work, even without an active subscription.
   *(Security, Support)*
-- **7-day trial**, started explicitly (never silent). *(Home, Pricing,
-  Contact)*
 
 ## Built to outlast your EMR
 
@@ -155,9 +155,11 @@ the site — if a feature's wording changes there, it should change here too.
 - **"How the design maps to common assessment questions"** — a table
   mapping typical PIA questions directly to DirectScribe's design choices.
   *(Compliance)*
-- **Explicit practice-scope boundary:** built for physicians in private
-  practice running their own clinic and EMR; not designed or licensed for
-  hospital or hospital-based-clinic deployment. *(Compliance)*
+- **Explicit practice-scope boundary:** built for individual physicians in
+  practice using their own compliant devices running macOS; the physician is
+  responsible for ensuring those devices are compliant and secured. Not
+  designed or licensed for institutional (hospital or health-system IT)
+  deployment. *(Home, Compliance)*
 - **Not-legal-advice framing** throughout — general information to support
   the clinic's own assessment, not a substitute for a privacy lawyer or
   professional college guidance. *(site-wide footer, Compliance)*
@@ -172,7 +174,7 @@ the site — if a feature's wording changes there, it should change here too.
   Tali AI, Dragon Medical One). *(Pricing, Cost breakdown)*
 - **Cost breakdown page** with static tables by vendor choice and patient
   volume, using figures verified July 2026. *(Cost breakdown)*
-- **License key delivered by email** — no account, no checkout system.
+- **App delivered by email as a DMG file on payment** — no account.
   *(Pricing)*
 
 ## Trial and onboarding
@@ -183,7 +185,7 @@ the site — if a feature's wording changes there, it should change here too.
   Ontario registration number to confirm the applicant is a real,
   currently-registered physician — framed as the current Ontario-first
   rollout mechanic, not a permanent restriction (DirectScribe itself targets
-  private-practice physicians across Canada). *(Contact)*
+  physicians in practice across Canada). *(Contact)*
 - **Secure server-side contact form** — submits over HTTPS directly to a
   Cloudflare Worker with no third-party form service and no data stored in
   between. *(Contact)*

@@ -1,8 +1,8 @@
 # directscribe.ca
 
 Marketing + compliance website for **DirectScribe** — a Mac-native,
-bring-your-own-API-key medical dictation app for solo outpatient primary-care
-physicians in Canada. Implements units **U13** and **U14** of the
+bring-your-own-API-key medical dictation app for physicians in practice in
+Canada, using their own compliant devices running macOS. Implements units **U13** and **U14** of the
 commercialization plan.
 
 ## Stack

@@ -107,6 +107,8 @@ DENY = [
     "fully local transcription", "completely local", "hipaa compliant",
     "hipaa-compliant", "hipaa compliance", "unrecoverable", "permanently delete",
     "cannot be recovered", "military-grade", "bank-grade", "zero risk",
+    # distribution is direct (DMG by email on payment) — no app-store copy may creep back
+    "app store", "storekit", "free trial",
 ]
 # (page-url-substring, needle) — needle must be present
 REQUIRE = [
