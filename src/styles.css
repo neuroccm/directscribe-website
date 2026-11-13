@@ -1,11 +1,29 @@
 /* ============================================================================
    DirectScribe — design system
    Blue + white with silver accents. Clinical-grade, calm, confident.
-   Native Apple system typeface: the audience is 100% macOS (Mac-native app),
-   so SF Pro renders natively, loads instantly, and makes no third-party
-   font-CDN request — on-brand for a privacy product. No client JS anywhere.
+   Typeface: Geist + Geist Mono by Vercel (SIL Open Font License 1.1, see
+   /assets/fonts/OFL.txt). Self-hosted variable fonts, so the site still makes
+   no third-party font-CDN request — on-brand for a privacy product. The Apple
+   system stack remains as the fallback while the font loads. No client JS.
    All text/background pairs verified >= WCAG AA (4.5:1) — see validate.py.
    ========================================================================== */
+
+/* ----- Fonts (self-hosted, variable weight 100–900) ----- */
+@font-face {
+  font-family: "Geist";
+  src: url("/assets/fonts/Geist-Variable.woff2?v=1.9.2") format("woff2");
+  font-weight: 100 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Geist";
+  src: url("/assets/fonts/Geist-Italic-Variable.woff2?v=1.9.2") format("woff2");
+  font-weight: 100 900; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono-Variable.woff2?v=1.9.2") format("woff2");
+  font-weight: 100 900; font-style: normal; font-display: swap;
+}
 
 /* ----- Design tokens ----- */
 :root {
@@ -27,9 +45,9 @@
   --footer-muted: #b7c6d6;
   --footer-link: #8fc1ea;
 
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
     "Helvetica Neue", system-ui, "Segoe UI", sans-serif;
-  --font-mono: ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas, monospace;
 
   --r-sm: 8px;
   --r: 12px;
@@ -161,8 +179,8 @@ main { display: block; }
 /* ----- Buttons ----- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-  font: inherit; font-weight: 600; line-height: 1; cursor: pointer;
-  padding: 0.72rem 1.15rem; border-radius: var(--r-sm);
+  font: inherit; font-weight: 600; line-height: 1; cursor: pointer; letter-spacing: -0.012em;
+  padding: 0.72rem 1.05rem; border-radius: var(--r-sm);
   border: 1px solid transparent; text-decoration: none; white-space: nowrap;
   transition: transform 0.12s ease, background 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
@@ -227,6 +245,23 @@ figure.mockup-wrap { margin: 0; }
   .mockup__body { grid-template-columns: 1fr; }
   .mockup__side { display: none; }
   .mockup__rec { display: none; }
+}
+
+/* ----- App screenshots (two portrait windows, side by side; stack on phones) ----- */
+.shots {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 400px));
+  gap: clamp(1.25rem, 4vw, 3rem); justify-content: center; align-items: start;
+}
+.shot { margin: 0; }
+.shot img {
+  width: 100%; height: auto; background: var(--white);
+  border: 1px solid var(--hairline-strong); border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+}
+.shot figcaption { margin-top: 0.9rem; font-size: 0.92rem; color: var(--muted); text-align: center; text-wrap: balance; }
+.shot figcaption b { display: block; color: var(--navy); font-weight: 620; font-size: 1rem; }
+@media (max-width: 600px) {
+  .shots { grid-template-columns: minmax(0, 360px); }
 }
 
 /* ----- Feature list (cardless: silver hairline + icon) ----- */
@@ -307,6 +342,7 @@ table.table { border-collapse: collapse; width: 100%; min-width: 560px; font-siz
 .table tbody tr:nth-child(even) { background: var(--surface-2); }
 .table tbody tr:hover { background: var(--blue-50); }
 .table td.num, .table th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--font-mono); font-size: 0.9rem; }
+.table thead th.num { font-family: var(--font-sans); font-size: 0.85rem; }
 .table tfoot td { font-weight: 640; color: var(--navy); background: var(--surface); }
 .table .row-emph { background: var(--blue-50) !important; }
 .table .row-emph td { font-weight: 600; }
@@ -387,6 +423,8 @@ code.inline { font-family: var(--font-mono); font-size: 0.9em; background: var(-
 .footer-about { color: var(--footer-muted); font-size: 0.92rem; max-width: 26rem; margin: 0.75rem 0 0; }
 .footer-legal { border-top: 1px solid rgba(255,255,255,0.14); margin-top: 2.5rem; padding-top: 1.5rem; font-size: 0.84rem; color: var(--footer-muted); display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }
 .footer-legal p { margin: 0; max-width: 60ch; }
+.footer-legal .footer-credit { flex-basis: 100%; max-width: none; }
+.footer-legal .footer-credit a { font-size: inherit; }
 
 @media (max-width: 760px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }

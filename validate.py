@@ -25,7 +25,7 @@ DIST = ROOT / "dist"
 
 errors = []
 warnings = []
-FILE_EXTS = (".css", ".json", ".svg", ".xml", ".png", ".jpg", ".webp", ".ico", ".txt", ".pdf")
+FILE_EXTS = (".css", ".json", ".svg", ".xml", ".png", ".jpg", ".webp", ".ico", ".txt", ".pdf", ".woff2")
 
 
 def err(where, msg):
@@ -119,8 +119,8 @@ REQUIRE = [
     ("/security", "s.10.1"),
     ("/security", "system of record"),
     ("/security", "only the physician's voice"),
-    ("/pricing", "$39"),
-    ("/pricing", "$399"),
+    ("/pricing", "$25"),
+    ("/pricing", "$199"),
     ("/compliance/index", "s.10.1"),
     ("/compliance/consent", "filevault"),
     ("/support", "month"),

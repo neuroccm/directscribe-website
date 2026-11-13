@@ -19,7 +19,12 @@ still deploys to Cloudflare Pages, and ships **zero client JavaScript**.
   carries `title`, `description`, and `nav` (which top-nav item to highlight).
 - `src/styles.css` — the whole design system (blue/white/silver, WCAG AA).
 - `public/**` — copied verbatim to the site root (`version.json`, `favicon.svg`,
-  `_headers`, and `screenshots/`).
+  `_headers`, `screenshots/`, and `assets/fonts/`).
+- `public/assets/fonts/` — self-hosted **Geist** and **Geist Mono** variable
+  fonts by Vercel (v1.9.2, unmodified, SIL Open Font License — `OFL.txt` sits
+  beside them). No font CDN; the footer carries the one-line attribution.
+- `public/screenshots/` — real app screenshots shown on the home page, stored
+  as lossless WebP at 2× (920 px wide, displayed at up to 400 px).
 - `build.py` — stamps each fragment into the layout and writes clean-URL static
   files to `dist/`.
 - `validate.py` — the build gate (see below).
@@ -68,7 +73,7 @@ Either way, `public/_headers` applies the security headers (CSP with
 |---|---|---|
 | `src/pages/download.html` | DMG download URL (`https://directscribe.ca/downloads/DirectScribe-1.13.0.dmg`) | the real notarized DMG URL |
 | `src/pages/download.html` | SHA-256 (all zeros) | the release script's real DMG checksum |
-| `public/screenshots/` + `.shot` blocks on `index` and vendor pages | labeled "Screenshot placeholder" | real screenshots of the renamed app (after U12) |
+| Vendor pages | no screenshots yet | optional real screenshots (the home page now has two in `public/screenshots/`) |
 | `public/version.json` | `version` / `build` | bump per release (shape is fixed; app consumes it) |
 | Social preview | no OG image referenced | optionally add a 1200×630 PNG + `og:image` meta |
 

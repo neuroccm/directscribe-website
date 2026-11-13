@@ -164,10 +164,10 @@ the site — if a feature's wording changes there, it should change here too.
 
 ## Pricing
 
-- **Single flat tier, no feature gating.** CAD $39/month or $399/year
-  (~2 months free). Every feature included regardless of plan. *(Pricing)*
+- **Single flat tier, no feature gating.** CAD $25/month or $199/year
+  (~4 months free). Every feature included regardless of plan. *(Pricing)*
 - **Honest all-in cost framing** — software fee shown separately from
-  typical vendor API spend (~CAD $10–15/month), landing around CAD $49–55
+  typical vendor API spend (~CAD $10–15/month), landing around CAD $35–41
   all-in versus $99–215/month bundled incumbents (Heidi Health, Scribeberry,
   Tali AI, Dragon Medical One). *(Pricing, Cost breakdown)*
 - **Cost breakdown page** with static tables by vendor choice and patient
